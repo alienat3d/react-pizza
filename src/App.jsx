@@ -1,3 +1,21 @@
+import './fonts/proxima-nova-regular.eot'
+import './fonts/proxima-nova-regular.woff2'
+import './fonts/proxima-nova-regular.woff'
+import './fonts/proxima-nova-regular.ttf'
+import './fonts/proxima-nova-extrabold.eot'
+import './fonts/proxima-nova-extrabold.woff2'
+import './fonts/proxima-nova-extrabold.woff'
+import './fonts/proxima-nova-extrabold.ttf'
+import './fonts/proxima-nova-black.eot'
+import './fonts/proxima-nova-black.woff2'
+import './fonts/proxima-nova-black.woff'
+import './fonts/proxima-nova-black.ttf'
+import './fonts/proxima-nova-bold.eot'
+import './fonts/proxima-nova-bold.woff2'
+import './fonts/proxima-nova-bold.woff'
+import './fonts/proxima-nova-bold.ttf'
+import './scss/app.scss'
+
 function App() {
 
   return (
