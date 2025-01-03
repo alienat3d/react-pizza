@@ -1,4 +1,19 @@
-export default function PizzaItem({img, title, price, filling, vegetarian, spicy}) {
+import {useState} from "react";
+
+export default function PizzaItem({img, title, price, filling, doughTypes, sizes, vegetarian, spicy}) {
+  // Здесь хранятся названия видов теста
+  const doughTypeNames = ['тонкое', 'традиционное']
+
+  // Когда нам нужно менять данные и также менять зависимый от них кусок DOM, то используем состояния, чтобы оптимизировать работу приложения и снизить нагрузку на девайс пользователя.
+  const [pizzaCount, setPizzaCount] = useState(0)
+
+  // Для того чтобы можно было выбрать определённый тип теста или размер нам нужны ещё два состояния
+  const [pizzaDoughType, setDoughType] = useState(1)
+
+  const [pizzaSize, setSize] = useState(1)
+
+  const addPizzaCount = () => setPizzaCount(pizzaCount + 1)
+
   return (
     <div className="pizza-block">
       <img
@@ -10,18 +25,29 @@ export default function PizzaItem({img, title, price, filling, vegetarian, spicy
       <p className="pizza-block__filling">{filling}</p>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">тонкое</li>
-          <li>традиционное</li>
+          {/* Что касается сохранения стейта, мы можем использовать тут альтернативный вариант сразу подставить функции сохранения стейта в стрелочную функцию. Когда у нас подобная ситуация, когда у нам нужно делать одну лишь функцию сохранения стейта, вполне подходящий вариант и более коротки, в отличие от того, что я сделал в [Categories.jsx]. */}
+          {
+            doughTypes.map((typeIndex, index, array) =>
+                <li onClick={array.length > 1 ? () => setDoughType(index) : ''}
+                    key={index}
+                    className={array.length > 1 ? (pizzaDoughType === index ? 'active' : '') : 'active'}
+                >{doughTypeNames[typeIndex]}</li>)
+          }
         </ul>
         <ul>
-          <li className="active">26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
+          {
+            sizes.map((size, index, array) =>
+              <li onClick={array.length > 1 ? () => setSize(index) : ''}
+                  key={index}
+                  className={array.length > 1 ? (pizzaSize === index ? 'active' : '') : 'active'}
+              >{size} см</li>
+            )
+          }
         </ul>
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
-        <div className="button button--outline button--add">
+        <button onClick={addPizzaCount} className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -35,8 +61,8 @@ export default function PizzaItem({img, title, price, filling, vegetarian, spicy
             />
           </svg>
           <span>Добавить</span>
-          <i>0</i>
-        </div>
+          <i>{pizzaCount}</i>
+        </button>
       </div>
     </div>
   )

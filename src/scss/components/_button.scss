@@ -1,3 +1,4 @@
+@use "sass:color";
 @import '../variables';
 
 .button {
@@ -25,11 +26,11 @@
   }
 
   &:hover {
-    background-color: darken($orange, 8%);
+    background-color: color.adjust($orange, $lightness: -8%);
   }
 
   &:active {
-    background-color: darken($orange, 12%);
+    background-color: color.adjust($orange, $lightness: -12%);
     transform: translateY(1px);
   }
 
@@ -56,6 +57,7 @@
   &--outline {
     background-color: #fff;
     border-color: $orange;
+
     &,
     span {
       color: $orange;
@@ -97,7 +99,8 @@
 
   &--add {
     svg {
-      margin-right: 2px;
+      margin-right: 5px;
+      margin-bottom: -2px;
     }
 
     span {
