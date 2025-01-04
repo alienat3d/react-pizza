@@ -1,4 +1,4 @@
-@import '../variables';
+@use '../variables' as *;
 
 .header {
   border-bottom: 1px solid $gray-line;
@@ -20,7 +20,7 @@
     h1 {
       color: #181818;
       font-size: 24px;
-      letter-spacing: 1%;
+      letter-spacing: 1px;
       text-transform: uppercase;
       font-weight: 800;
     }

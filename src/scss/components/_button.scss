@@ -1,5 +1,5 @@
 @use "sass:color";
-@import '../variables';
+@use '../variables';
 
 .button {
   display: inline-block;
@@ -50,7 +50,7 @@
 
     &:hover,
     &:active {
-      background-color: lighten($color: $black, $amount: 10);
+      background-color: color.adjust($black, $lightness: 10%);
     }
   }
 
@@ -85,7 +85,7 @@
     }
 
     &:active {
-      background-color: darken($orange, 8%);
+      background-color: color.adjust($orange, $lightness: -8%);
     }
   }
 

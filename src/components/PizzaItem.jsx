@@ -28,8 +28,8 @@ export default function PizzaItem({img, title, price, filling, doughTypes, sizes
           {/* Что касается сохранения стейта, мы можем использовать тут альтернативный вариант сразу подставить функции сохранения стейта в стрелочную функцию. Когда у нас подобная ситуация, когда у нам нужно делать одну лишь функцию сохранения стейта, вполне подходящий вариант и более коротки, в отличие от того, что я сделал в [Categories.jsx]. */}
           {
             doughTypes.map((typeIndex, index, array) =>
-                <li onClick={array.length > 1 ? () => setDoughType(index) : ''}
-                    key={index}
+                <li onClick={array.length > 1 ? () => setDoughType(index) : null}
+                    key={typeIndex}
                     className={array.length > 1 ? (pizzaDoughType === index ? 'active' : '') : 'active'}
                 >{doughTypeNames[typeIndex]}</li>)
           }
@@ -37,8 +37,8 @@ export default function PizzaItem({img, title, price, filling, doughTypes, sizes
         <ul>
           {
             sizes.map((size, index, array) =>
-              <li onClick={array.length > 1 ? () => setSize(index) : ''}
-                  key={index}
+              <li onClick={array.length > 1 ? () => setSize(index) : 'null'}
+                  key={size}
                   className={array.length > 1 ? (pizzaSize === index ? 'active' : '') : 'active'}
               >{size} см</li>
             )
