@@ -15,9 +15,10 @@
     }
 
     span {
-      color: $orange;
-      border-bottom: 1px dashed $orange;
+      user-select: none;
       cursor: pointer;
+      border-bottom: 1px dashed $orange;
+      color: $orange;
     }
   }
 

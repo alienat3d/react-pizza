@@ -1,5 +1,6 @@
 @use "sass:color";
 @use '../variables' as *;
+@use "../libs/_normalize";
 
 .categories {
   ul {
@@ -13,7 +14,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.1s ease-in-out;
-      @include noselect();
+      @include normalize.noselect();
 
       &:hover {
         background-color: color.adjust(#f9f9f9, $lightness: -2%);

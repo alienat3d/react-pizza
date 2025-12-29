@@ -1,5 +1,6 @@
 @use "sass:color";
-@use '../variables';
+@use "../_variables" as *;
+@use "../libs/_normalize";
 
 .button {
   display: inline-block;
@@ -11,7 +12,7 @@
   cursor: pointer;
   transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
   border: 1px solid transparent;
-  @include noselect();
+  @include normalize.noselect();
 
   &,
   span {
