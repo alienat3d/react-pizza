@@ -1,7 +1,7 @@
 import {useState} from "react"
 import PropTypes from 'prop-types'
-import pepperIcon from '@/assets/img/pepper.svg'
-import leafIcon from '@/assets/img/leaf.svg'
+import pepperIcon from '/src/assets/img/pepper.svg'
+import leafIcon from '/src/assets/img/leaf.svg'
 
 export default function PizzaBlock({img, title, price, filling, doughTypes, sizes, vegetarian, spicy}) {
   // Здесь хранятся названия видов теста
@@ -26,9 +26,9 @@ export default function PizzaBlock({img, title, price, filling, doughTypes, size
       />
       <h4 className="pizza-block__title">{title}{vegetarian &&
         <img className={"pizza-block__title-icon"} src={leafIcon} alt=""/>}{spicy > 0 &&
-        [...Array(spicy)].map((_, i) => (
+        [...Array(spicy)].map((_, idx) => (
           <img
-            key={i}
+            key={idx}
             className="pizza-block__title-icon"
             src={pepperIcon}
             alt="Spicy"

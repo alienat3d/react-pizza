@@ -1,18 +1,22 @@
-import logoPic from '@/assets/img/pizza-logo.svg'
+import {Link} from "react-router";
+import logoPic from '/src/assets/img/pizza-logo.svg'
 
 export default function Header() {
 	return (
 		<div className="header">
 			<div className="container">
-				<div className="header__logo">
+				{/* 7.4.2 Теперь, везде в вёрстке, где у нас были ссылки на другие страницы, мы их смело заменим на обёртку ReactRouter Link, а вместо атрибута "href" у нас теперь будет атрибут "to". Так мы активируем молниеносную загрузку страниц, свойственную SPA, без полной перезагрузки. */}
+				<Link to="/">
+					<div className="header__logo">
 					<img width="38" src={logoPic} alt="Логотип" />
 					<div>
 						<h1>React Pizza</h1>
 						<p>самая вкусная пицца во вселенной</p>
 					</div>
 				</div>
+				</Link>
 				<div className="header__cart">
-					<a href="./src/cart.html" className="button button--cart">
+					<Link to="/cart" className="button button--cart">
 						<span>520 ₽</span>
 						<div className="button__delimiter"></div>
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +31,7 @@ export default function Header() {
 								stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
 						</svg>
 						<span>3</span>
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>
