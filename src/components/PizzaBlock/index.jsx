@@ -1,10 +1,13 @@
-import {useState} from "react";
+import {useState} from "react"
+import PropTypes from 'prop-types'
+import pepperIcon from '@/assets/img/pepper.svg'
+import leafIcon from '@/assets/img/leaf.svg'
 
-export default function PizzaItem({img, title, price, filling, doughTypes, sizes, vegetarian, spicy}) {
+export default function PizzaBlock({img, title, price, filling, doughTypes, sizes, vegetarian, spicy}) {
   // Здесь хранятся названия видов теста
   const doughTypeNames = ['тонкое', 'традиционное']
 
-  // Когда нам нужно менять данные и также менять зависимый от них кусок DOM, то используем состояния, чтобы оптимизировать работу приложения и снизить нагрузку на девайс пользователя.
+  // Когда нам нужно менять данные и также менять зависимый от них кусок DOM, то используем состояния, чтобы оптимизировать работу приложения и снизить нагрузку на устройство пользователя.
   const [pizzaCount, setPizzaCount] = useState(0)
 
   // Для того чтобы можно было выбрать определённый тип теста или размер нам нужны ещё два состояния
@@ -21,17 +24,27 @@ export default function PizzaItem({img, title, price, filling, doughTypes, sizes
         src={img}
         alt={`Изображение пиццы ${title}`}
       />
-      <h4 className="pizza-block__title">{title}</h4>
+      <h4 className="pizza-block__title">{title}{vegetarian &&
+        <img className={"pizza-block__title-icon"} src={leafIcon} alt=""/>}{spicy > 0 &&
+        [...Array(spicy)].map((_, i) => (
+          <img
+            key={i}
+            className="pizza-block__title-icon"
+            src={pepperIcon}
+            alt="Spicy"
+          />
+        ))
+      }</h4>
       <p className="pizza-block__filling">{filling}</p>
       <div className="pizza-block__selector">
         <ul>
           {/* Что касается сохранения стейта, мы можем использовать тут альтернативный вариант сразу подставить функции сохранения стейта в стрелочную функцию. Когда у нас подобная ситуация, когда у нам нужно делать одну лишь функцию сохранения стейта, вполне подходящий вариант и более коротки, в отличие от того, что я сделал в [Categories.jsx]. */}
           {
             doughTypes.map((typeIndex, index, array) =>
-                <li onClick={array.length > 1 ? () => setDoughType(index) : null}
-                    key={typeIndex}
-                    className={array.length > 1 ? (pizzaDoughType === index ? 'active' : '') : 'active'}
-                >{doughTypeNames[typeIndex]}</li>)
+              <li onClick={array.length > 1 ? () => setDoughType(index) : null}
+                  key={typeIndex}
+                  className={array.length > 1 ? (pizzaDoughType === index ? 'active' : '') : 'active'}
+              >{doughTypeNames[typeIndex]}</li>)
           }
         </ul>
         <ul>
@@ -67,3 +80,14 @@ export default function PizzaItem({img, title, price, filling, doughTypes, sizes
     </div>
   )
 }
+
+PizzaBlock.propTypes = {
+  img: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  filling: PropTypes.string,
+  doughTypes: PropTypes.arrayOf(PropTypes.number).isRequired, // Array of numbers
+  sizes: PropTypes.arrayOf(PropTypes.number).isRequired,      // Array of numbers
+  vegetarian: PropTypes.bool,
+  spicy: PropTypes.number,
+};
