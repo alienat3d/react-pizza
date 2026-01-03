@@ -1,3 +1,4 @@
+https://mockapi.io/ (zaplin.dev@gmail.com)
 https://skeletonreact.com/
 https://reactrouter.com/
 ---
