@@ -28,9 +28,14 @@ body {
   }
 
   &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0 35px;
+    place-items: center;
+
+    .cart & {
+      display: block;
+    }
   }
 
   &__top {

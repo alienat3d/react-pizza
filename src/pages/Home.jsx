@@ -14,10 +14,12 @@ export const Home = () => {
       .then(response => response.json())
       .then(data => setItems(data))
       .then(() => setIsLoading(false))
+
+    window.scrollTo(0, 0);
   }, [])
 
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories/>
         <Sort/>
@@ -30,6 +32,6 @@ export const Home = () => {
             items.map(item => <PizzaBlock key={item.title} {...item} />)
         }
       </div>
-    </>
+    </div>
   )
 }

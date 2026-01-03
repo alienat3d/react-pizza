@@ -26,17 +26,15 @@ export default function App() {
     <div className="wrapper">
       <Header/>
       <div className="content">
-        <div className="container">
-          {/* 7.4.1 Далее в этом компоненте нам нужно в общий неизменяемый контейнер добавить Routes и Route, для каждого из возможных путей сайта. Вначале у нас будет идти путь к главной странице, а в конце к 404-ой странице. */}
-          {/* (go to [Header.jsx]) */}
-          <Routes>
-            {/*Атрибут "index" определяет главную страницу сайта*/}
-            <Route index element={<Home />} />
-            <Route path="cart" element={<Cart />} />
-            {/*Последним записывается рут к странице 404*/}
-            <Route path="*" element={<Page404 />} />
-          </Routes>
-        </div>
+        {/* 7.4.1 Далее в этом компоненте нам нужно в общий неизменяемый контейнер добавить Routes и Route, для каждого из возможных путей сайта. Вначале у нас будет идти путь к главной странице, а в конце к 404-ой странице. */}
+        {/* (go to [Header.jsx]) */}
+        <Routes>
+          {/*Атрибут "index" определяет главную страницу сайта*/}
+          <Route index element={<Home/>}/>
+          <Route path="cart" element={<Cart/>}/>
+          {/*Последним записывается рут к странице 404*/}
+          <Route path="*" element={<Page404/>}/>
+        </Routes>
       </div>
     </div>
   )
