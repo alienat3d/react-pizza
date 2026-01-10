@@ -21,7 +21,7 @@ import '@/scss/app.scss'
 
 import Header from "@/components/Header.jsx"
 import Categories from "@/components/Categories.jsx"
-import Sort from "@/components/Sort.jsx"
+import Sort from "@/components/Sorting.jsx"
 import PizzaItem from "@/components/PizzaItem"
 import Skeleton from "@/components/PizzaItem/Skeleton.jsx"
 import React from "react"

@@ -90,4 +90,4 @@ PizzaBlock.propTypes = {
   sizes: PropTypes.arrayOf(PropTypes.number).isRequired,      // Array of numbers
   vegetarian: PropTypes.bool,
   spicy: PropTypes.number,
-};
+}

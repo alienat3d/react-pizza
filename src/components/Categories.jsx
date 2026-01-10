@@ -1,26 +1,26 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 
-export default function Categories() {
-	// ТЗ: Сделать, чтобы при клике на каждую из категорий ей бы выставлялся класс "active". Примем, что у каждой категории есть свой индекс, как у элементов массива и изначальное значение будет 0, т.е. категория "Все".
-	const [activeIndex, setActiveIndex] = useState(0)
-
-	const onClickCategory = (index) => setActiveIndex(index)
-
-	// 5.0 Сделаем рендеринг категорий из массива при помощи метода map.
-	// ? Кстати, если у нас статичный список (который не будет меняться), вроде категорий здесь, то мы без задней мысли можем использовать значение индекса цикла в атрибуте "key" элемента. Однако, если возможна какая-то манипуляция с элементами, например их можно редактировать, менять местами или удалять, то индекс в ключе нам не подходит. Самый правильный способ для изменяемых списков — использовать в ключах идентификаторы, которые приходят из базы данных или API (например, id, uuid, slug).
+// 9.0.2 Теперь мы передаём в пропсы функции Categories value & кастомную функцию onChangeCategory.
+// (go to [Home.jsx])
+// 9.1.2 Здесь же в параметрах комп. Categories параметр "onChangeCategory" у нас является, по сути, placeholder'ом для анонимной коллбэк-функции внутри пропса "onChangeCategory", ...
+export default function Categories({value, onChangeCategory}) {
 	const categories = ['Все', 'Новинки', 'Мясо', 'Вегетарианские', 'Гриль', 'Острые', 'Курица']
+  const categoriesEnWords = ['all', 'new', 'meaty', 'vegetarian', 'grill', 'spicy', 'chicken']
 
-	// 5.1 Далее мы создадим анонимную стрелочную функцию, которая будет вызывать функцию onClickCategory и передадим в неё индекс каждого из элементов.
-	// (go to [src\components\Sort.jsx])
+  // Создадим функцию, которая будет переводить индексы категорий в английские слова для наглядности и уже их мы будем передавать родительскому компоненту
+  const categoryIndexToWord = (index) => categoriesEnWords[index]
+
 	return (
 		<div className="categories">
+      {/* 9.1.3 ... которая, в свою очередь, передаётся в слушатель события по клику и забирает в себя index, который также будет "id" в комп. Home. Этот "id" в итоге попадёт в стейт "categoryId" и будет использоваться в запросах к серверу для сортировки пицц. */}
+      {/* (go to [Home.jsx]) */}
 			<ul>
 				{
 					categories.map((name, index) => (
 						<li
-							onClick={() => onClickCategory(index)}
 							key={index}
-							className={activeIndex === index ? 'active' : ''}
+							onClick={() => onChangeCategory(categoryIndexToWord(index))}
+							className={categoriesEnWords.indexOf(value) === index ? 'active' : ''}
 						>{name}</li>
 					)
 					)
@@ -29,3 +29,8 @@ export default function Categories() {
 		</div>
 	)
 }
+
+Categories.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChangeCategory: PropTypes.func.isRequired,
+};

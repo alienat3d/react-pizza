@@ -12,3 +12,4 @@ https://reactrouter.com/
 [#7: Подключаем React Router v6, создаем компонент-скелетон](https://www.youtube.com/watch?v=eUt-M-YRjyg)<br/>
 [#8: Настраиваем адаптивную вёрстку, создаём страницу корзины](https://www.youtube.com/watch?v=7t9_nmg_Yzg)<br/>
 [#9: Делаем функционал сортировки и фильтрации пицц](https://www.youtube.com/watch?v=X_a-ba9hxwA)<br/>
+[#10: Разрабатываем пагинацию и поиск пицц](https://www.youtube.com/watch?v=VHQxz5Cdrc8)<br/>
