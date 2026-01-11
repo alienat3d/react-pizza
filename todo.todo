@@ -1,3 +1,3 @@
 [] Fix styles (adaptive screens);
 [✓] Fix Sorting component (prolly dependencies to parent component);
-[] ;
+[] (Home.jsx) Разобраться с поиском (возможно вернуться на JS-поиск по массиву данных;

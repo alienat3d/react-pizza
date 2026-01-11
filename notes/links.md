@@ -13,3 +13,4 @@ https://reactrouter.com/
 [#8: Настраиваем адаптивную вёрстку, создаём страницу корзины](https://www.youtube.com/watch?v=7t9_nmg_Yzg)<br/>
 [#9: Делаем функционал сортировки и фильтрации пицц](https://www.youtube.com/watch?v=X_a-ba9hxwA)<br/>
 [#10: Разрабатываем пагинацию и поиск пицц](https://www.youtube.com/watch?v=VHQxz5Cdrc8)<br/>
+[#11: Что такое контекст в React (useContext) и Props Drilling?](https://www.youtube.com/watch?v=dR96e1fq6Mg)<br/>

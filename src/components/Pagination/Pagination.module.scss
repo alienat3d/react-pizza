@@ -1,0 +1,50 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+
+  // Когда у нас внешний класс (не принадлежащий компоненту), то нужно оборачивать его в ":global"
+  :global {
+    li.previous a,
+    li.next a {
+      outline: 3px solid transparent;
+      outline-offset: -7px;
+      background: #fe5f1e url("../../assets/img/next-page.png") no-repeat center/cover;
+      transition: outline-color-color 0.25s;
+
+      &:hover {
+        outline-color: #fff;
+      }
+    }
+    li.disabled {
+      visibility: hidden;
+    }
+
+    a {
+      cursor: pointer;
+      border: 1px solid #fe5f1e;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+    }
+
+    li.previous {
+      transform: rotate(180deg);
+    }
+
+    li.selected a,
+    li:not(.previous, .next, .selected):hover a {
+      border-width: 3px;
+    }
+
+    li.selected {
+      pointer-events: none;
+    }
+  }
+}

@@ -85,7 +85,7 @@ PizzaBlock.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  filling: PropTypes.string,
+  filling: PropTypes.string.isRequired,
   doughTypes: PropTypes.arrayOf(PropTypes.number).isRequired, // Array of numbers
   sizes: PropTypes.arrayOf(PropTypes.number).isRequired,      // Array of numbers
   vegetarian: PropTypes.bool,
