@@ -1,8 +1,15 @@
 import styles from './Search.module.scss'
-import PropTypes from "prop-types";
+import React from "react";
+// 11.2.5.0 Нам ещё нехватает импорта самого SearchContext сюда...
+// (Go to [App.jsx])
+import {SearchContext} from "/src/App.jsx";
 
 // 10.1.4 Теперь в Search мы снова вытаскиваем эти данные
-const Search = ({searchValue, setSearchValue}) => {
+// 11.2.3 И отсюда тоже уберём.
+// 11.2.4 Но, чтобы воспользоваться Реакт контекстом, нам нужно использовать здесь спец. хук "useContext". И т.к. мы в [App.jsx] указали в value для обёртки "SearchContext.Provider" "searchValue" и "setSearchValue", то здесь мы можем их вытащить через хук.
+const Search = () => {
+  const {searchValue, setSearchValue} = React.useContext(SearchContext)
+
   return (
     <label className={styles.root}>
       <svg className={styles.magnifyingGlassIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
@@ -30,8 +37,3 @@ const Search = ({searchValue, setSearchValue}) => {
 }
 
 export default Search
-
-Search.propTypes = {
-  searchValue: PropTypes.string.isRequired,
-  setSearchValue: PropTypes.func.isRequired,
-}

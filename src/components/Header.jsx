@@ -1,10 +1,10 @@
 import {Link} from "react-router"
-import PropTypes from "prop-types"
 import logoPic from '/src/assets/img/pizza-logo.svg'
 import Search from "./Search/index.jsx"
 
 // 10.1.2 Здесь мы эти данные вытаскиваем через пропсы ({searchValue, setSearchValue}).
-const Header = ({searchValue, setSearchValue}) => {
+// 11.2.1 Теперь можно также убрать их отсюда...
+const Header = () => {
 	return (
 		<div className="header">
 			<div className="container">
@@ -19,7 +19,9 @@ const Header = ({searchValue, setSearchValue}) => {
 				</div>
 				</Link>
         {/* 10.1.3 Затем из Header мы передадим также через пропсы эти данные в Search */}
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        {/* 11.2.2 ... и отсюда тоже. */}
+        {/* (Go to [/Search/index.jsx]) */}
+        <Search/>
 				<div className="header__cart">
 					<Link to="/cart" className="button button--cart">
 						<span>520 ₽</span>
@@ -44,8 +46,3 @@ const Header = ({searchValue, setSearchValue}) => {
 }
 
 export default Header
-
-Header.propTypes = {
-  searchValue: PropTypes.string.isRequired,
-  setSearchValue: PropTypes.func.isRequired,
-}

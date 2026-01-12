@@ -1,17 +1,21 @@
 import React from 'react'
-import PropTypes from "prop-types"
 import Categories from "/src/components/Categories.jsx"
 import Sorting from "/src/components/Sorting.jsx"
 import PizzaBlock from "/src/components/PizzaBlock"
 import Skeleton from "/src/components/PizzaBlock/Skeleton.jsx"
 import Pagination from "/src/components/Pagination/index.jsx";
+import {SearchContext} from "../App.jsx";
 
-export const Home = ({searchValue}) => {
+// export const Home = ({searchValue}) => {
+const Home = () => {
   const URL = 'https://6952a95b3b3c518fca135a9c.mockapi.io'
   const LIMIT_PER_PAGE = 8
   const [totalPages, setTotalPages] = React.useState(0)
   const [items, setItems] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
+
+  // 11.2.7 И здесь мы удалим пропсы из функции Home, а вместо этого вызовем "useContext", куда помести "SearchContext" и вытащим оттуда деструктуризацией "searchValue".
+  const {searchValue} = React.useContext(SearchContext)
 
   // 9.0.0 Итак, здесь мы поработаем с категорией и сортировкой. Для этого нам нужно как-то связать этот родительский компонент Home с компонентами Categories & Sorting. Чтобы это сделать мы создадим здесь дополнительно два стейта для каждого из них. Тогда мы сможем передавать некие параметры, получаемые из них в стейт, в запрос на сервер для нужной нам сортировки пицц. ↓
   // ? 9.1.0 Итак, рассмотрим подробно как работает передача id в стейт родительского компонента "categoryId" из комп. Categories. ↓
@@ -145,6 +149,8 @@ export const Home = ({searchValue}) => {
   )
 }
 
-Home.propTypes = {
+export default Home
+
+/*Home.propTypes = {
   searchValue: PropTypes.string.isRequired,
-}
+}*/
