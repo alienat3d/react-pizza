@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from "axios"
 import Categories from "/src/components/Categories.jsx"
 import Sorting from "/src/components/Sorting.jsx"
 import PizzaBlock from "/src/components/PizzaBlock"
@@ -38,7 +39,8 @@ const Home = () => {
   // const [sortingDirection, setSortingDirection] = React.useState('asc')
   // const [currentPage, setCurrentPage] = React.useState(1)
 
-  React.useEffect(() => {
+// 14.0 Для более удобной работы с запросами установим и используем специальную библиотеку "axios" (npm i axios). Теперь перепишем метод fetch на axios.
+  /*React.useEffect(() => {
     fetch(URL + '/items')
       .then(res => res.json())
       .then(data => {
@@ -48,7 +50,17 @@ const Home = () => {
       .catch(err => {
         console.error('Ошибка получения количества:', err);
       });
-  }, []);
+  }, []);*/
+  // 14.1.0 "axios" многим выгодно отличается, например тем, что с ним мы можем пропустить шаг перевода данных из json в объект JS методом "json", а сразу приступить к обработке данных в следующем же чейне после их получения. ↓
+  React.useEffect(() => {
+    axios.get(URL + '/items')
+      .then(response => {
+        const pages = Math.ceil(response.data.length / LIMIT_PER_PAGE)
+        setTotalPages(pages)
+      },
+      error => console.error(error)
+    )
+  }, [])
 
   const generateLink = (categoryName, sortingTypeId, sortingDirection, searchValue, currentPage) => {
     let link = URL + '/items'
@@ -110,7 +122,9 @@ const Home = () => {
     return link
   }
 
-  React.useEffect(() => {
+  // 14.1.1 Также мы продолжим рефакторинг и здесь.
+  // (Go to [/Search/index.jsx])
+  /*React.useEffect(() => {
     setIsLoading(true)
 
     fetch(generateLink(categoryName, sortingTypeId, sortingDirection, searchValue, currentPage))
@@ -119,6 +133,14 @@ const Home = () => {
       .then(() => setIsLoading(false))
 
     window.scrollTo(0, 0)
+  }, [categoryName, sortingTypeId, sortingDirection, searchValue, currentPage])*/
+  React.useEffect(() => {
+    setIsLoading(true)
+
+    axios.get(generateLink(categoryName, sortingTypeId, sortingDirection, searchValue, currentPage))
+      .then(response => setItems(response.data),
+        error => console.error(error))
+      .then(() => setIsLoading(false))
   }, [categoryName, sortingTypeId, sortingDirection, searchValue, currentPage])
 
   const pizzasArr = items.map(item => <PizzaBlock key={item.title} {...item} />)
