@@ -4,8 +4,8 @@ import styles from "./Pagination.module.scss"
 import PropTypes from "prop-types";
 
 // 10.11.3 Передадим onChangePage в пропсы Pagination, чтобы связать с родительским.
+// ? В тех местах, где мы передаём пропсы компоненту из родительского... ↓
 export const Pagination = ({totalPages, onChangePage}) => {
-  console.log(totalPages)
   return (
     <>
       {/* 10.10 Займёмся пагинацией, для чего установим плагин "react-paginate" (https://www.npmjs.com/package/react-paginate). Он нам сформирует список ul со ссылками и кнопками навигации, которые мы потом стилизуем в [Pagination.module.scss]. */}
@@ -28,6 +28,7 @@ export const Pagination = ({totalPages, onChangePage}) => {
 
 export default Pagination
 
+// ? ... линтер нас попросит записать типы для них.
 Pagination.propTypes = {
   totalPages: PropTypes.number.isRequired,
   onChangePage: PropTypes.func.isRequired,

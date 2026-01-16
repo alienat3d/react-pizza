@@ -18,9 +18,9 @@ const Header = () => {
 					</div>
 				</div>
 				</Link>
-        {/* 10.1.3 Затем из Header мы передадим также через пропсы эти данные в Search */}
+        {/* 10.1.3 Затем из Header мы передадим также через пропсы эти данные в 09-Search */}
         {/* 11.2.2 ... и отсюда тоже. */}
-        {/* (Go to [/Search/index.jsx]) */}
+        {/* (Go to [/09-Search/index.jsx]) */}
         <Search/>
 				<div className="header__cart">
 					<Link to="/cart" className="button button--cart">
