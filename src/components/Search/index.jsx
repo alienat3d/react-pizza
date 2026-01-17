@@ -1,26 +1,46 @@
 import styles from './Search.module.scss'
 
-import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {setInputValue} from "/src/redux/slices/searchSlice.js";
+import React from "react"
+import debounce from "lodash.debounce"
+import {useDispatch} from "react-redux"
+import {setInputValue} from "/src/redux/slices/searchSlice.js"
 
-// import {SearchContext} from "/src/App.jsx";
+// import {SearchContext} from "/src/App.jsx"
 
 const Search = () => {
   // const {searchValue, setSearchValue} = React.useContext(SearchContext)
-  const searchValue = useSelector((state) => state.search.inputValue)
+  // const searchValue = useSelector((state) => state.search.inputValue)
+  // 14.3.2 Ещё нам понадобится второй стейт для ощущения пользователем немедленного отображения введённых данных на сайте. ↓
+  const [value, setValue] = React.useState('');
   const dispatch = useDispatch()
 
   // 14.2.3 Для этого у нас есть специальный хук «useRef»
   const searchInputRef = React.useRef()
+
+  // 14.3.0 Однако, у нас всё ещё идут обращения к серверу по каждому введённому символу в строку ввода, что совсем не здорово, т.к. это избыточная нагрузка на сервер. Мы можем решить эту проблему с помощью JS-декоратора debounce, а на помощь вызовем библиотеку «lodash». Точнее нам нужна только та её часть, что отвечает за debounce метод. (npm i lodash.debounce)
+  // 14.3.1 Но, если мы просто поместим сюда функцию debounce, то столкнёмся с проблемой, что она будет пересоздаваться всякий раз, когда этот компонент будет ререндериться, т.к. это происходит при помощи запуска функции Search, которая, по правилам JS, пересоздаёт своё содержимое заново. Это точно в нашем случае не нужно и чтобы этого избежать используем хук «useCallback». Что касается своего действия, хуй useCallback похож на useEffect, он принимает функцию и какие-то зависимости вторым аргументом. Добавим в зависимости пустой массив, т.о. сказав Реакту, что мы не хотим пересоздавать эту функцию каждый раз при ререндере компонента, а хотим сохранить ссылку на оригинальную функцию, созданную при первом рендере компонента. ↑
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const updateSearchValue = React.useCallback(
+    debounce((str) => {
+      dispatch(setInputValue(str));
+    }, 500),
+    []
+  );
+
+  // 14.3.3 Ну, а в функции, которая будет вызываться при введении в строку ввода данных, мы будем записывать данные одновременно в локальный стейт (для немедленного отображения на сайте) и в функцию "updateSearchValue". Именно "updateSearchValue" будет уже работать через debounce для отложенного запроса на сервер, чтобы его не перегружать избыточными запросами на каждый введённый символ.
+  const onChangeInput = (event) => {
+    setValue(event.target.value);
+    updateSearchValue(event.target.value)
+  };
 
   // 14.2.1 Здесь мы используем хук "useEffect", чтобы сказать Реакту, что когда произойдёт первый рендер приложения, нужно найти инпут.
   // 14.2.2 Создадим новую функцию, которая будет очищать поиск и делать фокус на нём.
   // 14.2.5 Теперь, чтобы извлечь из ref-переменной нужную нам ссылку на DOM-элемент, то обратимся к свойству этого объекта "current".
   const clearSearch = () => {
     dispatch(setInputValue(''))
-    searchInputRef.current.focus()
+    setValue('')
     // document.querySelector("input").focus() - но так в Реакте искать DOM-элементы не принято и считается дурным тоном
+    searchInputRef.current.focus()
   }
 
   return (
@@ -32,7 +52,7 @@ const Search = () => {
       </svg>
       {/*14.2.0 Теперь, нам также хотелось бы возвращать фокус на строку ввода после удаления её содержимого кнопкой очистки. ↑ */}
       <button onClick={clearSearch}
-              className={`${styles.clearBtn} ${searchValue ? styles.visible : ''}`}>
+              className={`${styles.clearBtn} ${value ? styles.visible : ''}`}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.88 67.28">
           <path
             d="m34.31,46.84c-.85-.85-.85-2.24,0-3.09l10.13-10.13-10.13-10.13c-.85-.85-.85-2.24,0-3.09l2.43-2.43c.85-.85,2.24-.85,3.09,0l10.13,10.13,10.13-10.13c.85-.85,2.24-.85,3.09,0l2.43,2.43c.85.85.85,2.24,0,3.09l-10.13,10.13,10.13,10.13c.85.85.85,2.24,0,3.09l-2.43,2.43c-.85.85-2.24.85-3.09,0l-10.13-10.13-10.13,10.13c-.85.85-2.24.85-3.09,0l-2.43-2.43Z"
@@ -43,7 +63,7 @@ const Search = () => {
         </svg>
       </button>
       {/* 14.2.4 С помощью директивы "ref" мы связываем ref-переменную с её DOM-элементом. ↑ */}
-      <input ref={searchInputRef} value={searchValue} onChange={evt => dispatch(setInputValue(evt.target.value))}
+      <input ref={searchInputRef} value={value} onChange={onChangeInput}
              className={styles.input}
              placeholder={'Название пиццы...'}
              name="search"/>
