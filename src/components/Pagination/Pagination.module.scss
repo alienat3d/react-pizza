@@ -4,6 +4,9 @@
   justify-content: center;
   gap: 1rem;
 
+  li {
+    user-select: none;
+  }
 
   // Когда у нас внешний класс (не принадлежащий компоненту), то нужно оборачивать его в ":global"
   :global {

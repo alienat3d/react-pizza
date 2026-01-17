@@ -20,6 +20,7 @@ export const Pagination = ({totalPages, onChangePage}) => {
         onPageChange={evt => onChangePage(evt.selected + 1)}
         pageRangeDisplayed={8}
         pageCount={totalPages}
+        // forcePage={currentPage} - пока не разобрался нужно ли добавлять, вроде и так работает
         renderOnZeroPageCount={null}
       />
     </>
