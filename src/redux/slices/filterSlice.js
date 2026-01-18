@@ -6,25 +6,37 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState: {
     categoryName: 'all',
+    currentPage: 1,
+    sortingDirection: 'asc',
     sortingTypeId: 0,
-    sortingDirection: 'asc'
   },
   reducers: {
     // setCategoryName: () => {} - кстати, мы можем записывать редьюсеры короче:
     setCategoryName(state, action) {
       state.categoryName = action.payload
     },
-    setSortingTypeId(state, action) {
-      state.sortingTypeId = action.payload
+    setPageNumber(state, action) {
+      state.currentPage = action.payload
     },
     setSortingDirection(state, action) {
       state.sortingDirection = action.payload
+    },
+    setSortingTypeId(state, action) {
+      state.sortingTypeId = action.payload
+    },
+    // 15.5.1 Здесь нам понадобится отдельный экшен setFilters. Также сделаем и в [paginationSlice.js]
+    // (Go to [Home.jsx])
+    setFilters(state, action) {
+      state.categoryName = action.payload.categoryName
+      state.currentPage = Number(action.payload.currentPage)
+      state.sortingTypeId = Number(action.payload.sortingTypeId)
+      state.sortingDirection = action.payload.sortingDirection
     }
   },
 })
 
 // 13.0.2 Экспортируем экшены через деструктурирование, чтобы можно было использовать каждый из них в других частях приложения.
-export const {setCategoryName, setSortingTypeId, setSortingDirection} = filterSlice.actions
+export const {setCategoryName, setPageNumber, setSortingDirection, setSortingTypeId, setFilters} = filterSlice.actions
 
 // 13.0.3 А по умолчанию экспортируем редьюсер.
 // (Go to [/redux/store.js])

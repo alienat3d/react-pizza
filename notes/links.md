@@ -17,8 +17,8 @@ https://reactrouter.com/
 [#12: Изучаем библиотеку Redux Toolkit](https://www.youtube.com/watch?v=-pF8SDS-uSc)<br/>
 [#13: Изучаем хуки useSelector, useDispatch, создаем свой Slice в Redux Toolkit](https://www.youtube.com/watch?v=h1Q2V2Ek0EQ)<br/>
 [#14: Оптимизируем поиск с помощью Debounce, пагинация через Redux Toolkit](https://www.youtube.com/watch?v=YAsKVCNqdy4)<br/>
-[#15: ]()<br/>
-[#16: ]()<br/>
+[#15: Сохраняем параметры фильтрации в URL](https://www.youtube.com/watch?v=e-sm4OOXHBc)<br/>
+[#16: Создаем Redux-логику для корзины, скрытие/показ popup-сортировки](https://www.youtube.com/watch?v=RhOvu20t0Go)<br/>
 [#17: ]()<br/>
 [#18: ]()<br/>
 [#19: ]()<br/>

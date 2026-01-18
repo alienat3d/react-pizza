@@ -5,41 +5,26 @@ import debounce from "lodash.debounce"
 import {useDispatch} from "react-redux"
 import {setInputValue} from "/src/redux/slices/searchSlice.js"
 
-// import {SearchContext} from "/src/App.jsx"
-
 const Search = () => {
-  // const {searchValue, setSearchValue} = React.useContext(SearchContext)
-  // const searchValue = useSelector((state) => state.search.inputValue)
-  // 14.3.2 Ещё нам понадобится второй стейт для ощущения пользователем немедленного отображения введённых данных на сайте. ↓
   const [value, setValue] = React.useState('');
   const dispatch = useDispatch()
 
-  // 14.2.3 Для этого у нас есть специальный хук «useRef»
   const searchInputRef = React.useRef()
 
-  // 14.3.0 Однако, у нас всё ещё идут обращения к серверу по каждому введённому символу в строку ввода, что совсем не здорово, т.к. это избыточная нагрузка на сервер. Мы можем решить эту проблему с помощью JS-декоратора debounce, а на помощь вызовем библиотеку «lodash». Точнее нам нужна только та её часть, что отвечает за debounce метод. (npm i lodash.debounce)
-  // 14.3.1 Но, если мы просто поместим сюда функцию debounce, то столкнёмся с проблемой, что она будет пересоздаваться всякий раз, когда этот компонент будет ререндериться, т.к. это происходит при помощи запуска функции Search, которая, по правилам JS, пересоздаёт своё содержимое заново. Это точно в нашем случае не нужно и чтобы этого избежать используем хук «useCallback». Что касается своего действия, хуй useCallback похож на useEffect, он принимает функцию и какие-то зависимости вторым аргументом. Добавим в зависимости пустой массив, т.о. сказав Реакту, что мы не хотим пересоздавать эту функцию каждый раз при ререндере компонента, а хотим сохранить ссылку на оригинальную функцию, созданную при первом рендере компонента. ↑
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateSearchValue = React.useCallback(
-    debounce((str) => {
-      dispatch(setInputValue(str));
-    }, 500),
+    debounce(str => dispatch(setInputValue(str)), 500),
     []
   );
 
-  // 14.3.3 Ну, а в функции, которая будет вызываться при введении в строку ввода данных, мы будем записывать данные одновременно в локальный стейт (для немедленного отображения на сайте) и в функцию "updateSearchValue". Именно "updateSearchValue" будет уже работать через debounce для отложенного запроса на сервер, чтобы его не перегружать избыточными запросами на каждый введённый символ.
-  const onChangeInput = (event) => {
+  const onChangeInput = event => {
     setValue(event.target.value);
     updateSearchValue(event.target.value)
   };
 
-  // 14.2.1 Здесь мы используем хук "useEffect", чтобы сказать Реакту, что когда произойдёт первый рендер приложения, нужно найти инпут.
-  // 14.2.2 Создадим новую функцию, которая будет очищать поиск и делать фокус на нём.
-  // 14.2.5 Теперь, чтобы извлечь из ref-переменной нужную нам ссылку на DOM-элемент, то обратимся к свойству этого объекта "current".
   const clearSearch = () => {
     dispatch(setInputValue(''))
     setValue('')
-    // document.querySelector("input").focus() - но так в Реакте искать DOM-элементы не принято и считается дурным тоном
     searchInputRef.current.focus()
   }
 
@@ -50,7 +35,6 @@ const Search = () => {
           d="M35.71 34.29c.39.39.39 1.02 0 1.41s-1.02.39-1.41 0L23.53 24.93c-.2-.2-.53-.21-.74-.04 0 0-.16.14-.45.36-2.33 1.73-5.21 2.75-8.33 2.75C6.27 28 0 21.73 0 14S6.27 0 14 0s14 6.27 14 14c0 3.05-.97 5.87-2.63 8.17-.25.34-.47.61-.47.61-.18.21-.16.55.04.75L35.71 34.3ZM14 26c6.63 0 12-5.37 12-12S20.63 2 14 2 2 7.37 2 14s5.37 12 12 12Z"
           fill="#b6b6b6"/>
       </svg>
-      {/*14.2.0 Теперь, нам также хотелось бы возвращать фокус на строку ввода после удаления её содержимого кнопкой очистки. ↑ */}
       <button onClick={clearSearch}
               className={`${styles.clearBtn} ${value ? styles.visible : ''}`}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.88 67.28">
@@ -62,7 +46,6 @@ const Search = () => {
             fillRule="evenodd" fill="#b6b6b6"/>
         </svg>
       </button>
-      {/* 14.2.4 С помощью директивы "ref" мы связываем ref-переменную с её DOM-элементом. ↑ */}
       <input ref={searchInputRef} value={value} onChange={onChangeInput}
              className={styles.input}
              placeholder={'Название пиццы...'}
