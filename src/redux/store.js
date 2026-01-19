@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import filter from '/src/redux/slices/filterSlice.js'
 import search from '/src/redux/slices/searchSlice.js'
+import cart from '/src/redux/slices/cartSlice.js'
 
 // 12.7 Дальше нам нужно добавить в хранилище наш counterSlice. Для этого в объект "reducer" мы помещаем "counterReducer" в свойство с именем слайса "counter".
 // (Go to [App.jsx])
@@ -9,6 +10,6 @@ import search from '/src/redux/slices/searchSlice.js'
 export default configureStore({
   reducer: {
     // filter: filter, можно сократить до:
-    filter, search
+    filter, search, cart
   },
 })
