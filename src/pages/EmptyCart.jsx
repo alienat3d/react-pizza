@@ -1,4 +1,6 @@
-import {Link} from "react-router";
+import emptyCartImg from '/src/assets/img/empty-cart.png'
+
+import {Link} from "react-router"
 
 const EmptyCart = () => {
   return (
@@ -9,9 +11,9 @@ const EmptyCart = () => {
           Вероятно, вы ещё не добавили пиццу в корзину.<br/>
           Пожалуйста, перейдите на главную страницу, чтобы выбрать и добавить пиццу в корзину.
         </p>
-        <img src="/src/assets/img/empty-cart.png" alt="Empty cart"/>
+        <img src={emptyCartImg} alt="Empty cart"/>
         <Link to="/" className="button button--black">
-          <span>Вернуться на главную страницу</span>
+          <span>Вернуться на главную</span>
         </Link>
       </div>
     </div>

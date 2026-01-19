@@ -290,16 +290,16 @@ body {
 
   &--empty {
     margin: 0 auto;
-    width: 560px;
+    width: 845px;
     text-align: center;
 
     h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 36px;
+      margin-bottom: 25px;
     }
 
     p {
-      font-size: 18px;
+      font-size: 20px;
       line-height: 145.4%;
       letter-spacing: 0.01em;
       color: #777777;
@@ -308,7 +308,7 @@ body {
     img {
       display: block;
       width: 300px;
-      margin: 45px auto 60px;
+      margin: 70px auto;
     }
 
     .button--black {

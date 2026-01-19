@@ -1,7 +1,8 @@
 import {Link} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
+import {clearList} from "/src/redux/slices/cartSlice.js";
+import EmptyCart from "/src/pages/EmptyCart.jsx";
 import CartItem from "/src/components/CartItem.jsx";
-import {clearList} from "../redux/slices/cartSlice.js";
 
 export const Cart = () => {
 // 16.7.0 Здесь мы будем заполнять вёрстку динамически из данных о добавленных пиццах в Redux хранилище. Поэтому, сперва мы извлечём те данные, которые нам понадобятся с помощью хука "useSelector" и будем их вставлять, а также необходимые экшены с помощью "dispatch".
@@ -13,6 +14,9 @@ export const Cart = () => {
   const onClickClearList = () => {
     if (window.confirm('Вы действительно хотите очистить корзину?')) dispatch(clearList())
   }
+
+  // 16.9 Перед рендером корзины нам сперва нужно определить есть ли в ней что-то и если нет, то рендерить страницу-компонент пустой корзины. Т.е. если цена у нас вернёт false (если она равна 0), то мы вернём комп. EmptyCart. Это тоже форма условного рендера. Т.е. мы до рендера основного сделали проверку и если бы она прошла, то отрендерили что-то другое, например комп. пустой корзины.
+  if (!totalPrice) return <EmptyCart/>
 
   return (
     <div className="container container--cart">
