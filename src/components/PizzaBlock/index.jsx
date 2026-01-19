@@ -13,7 +13,7 @@ export default function PizzaBlock({id, img, title, price, filling, doughTypes, 
   // 16.6.1 Добавим стейт "amount" из Redux. Для этого нам нужно искать эту пиццу по id.
   const itemInCart = useSelector(state => state.cart.items.find(obj => obj.id === id))
   // 16.6.2 Дальше мы будем искать в этом объекте свойство "amount", а если не найдём, то присваивать 0. ↓
-  const addedItems = itemInCart ? itemInCart.amount : 0
+  const addedItemsCount = itemInCart ? itemInCart.amount : 0
   const dispatch = useDispatch()
 
   // Здесь хранятся названия видов теста
@@ -97,7 +97,7 @@ export default function PizzaBlock({id, img, title, price, filling, doughTypes, 
           <span>Добавить</span>
           {/* 16.6.3 Здесь мы будем рендерить этот счётчик только, если значение в объекте этой пиццы > 0. */}
           {/*(Go to [/pages/Cart.jsx])*/}
-          {addedItems > 0 && <i>{addedItems}</i>}
+          {addedItemsCount > 0 && <i>{addedItemsCount}</i>}
         </button>
       </div>
     </div>

@@ -13,32 +13,42 @@ export const cartSlice = createSlice({
     items: [],
   },
   reducers: {
-    /*addItem(state, action) {
-      state.items.push(action.payload)
-      state.totalPrice = state.items.reduce((total, obj) => total + obj.price, 0)
-    },*/
     addItem(state, action) {
       const findItem = state.items.find(obj => obj.id === action.payload.id)
 
-      if (findItem) {
-        findItem.amount++
-        findItem.price = findItem.price * findItem.amount
-      } else {
-        state.items.push(action.payload)
-      }
+      findItem ? findItem.amount++ : state.items.push(action.payload)
 
       state.totalItems++
-      state.totalPrice = state.items.reduce((total, obj) => total + obj.price, 0)
+      state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
     },
     removeItem(state, action) {
-      state.items = state.items.filter(obj => obj.id !== action.payload)
+      const findItem = state.items.find(obj => obj.id === action.payload)
+
+      if (findItem.amount > 1) {
+        findItem.amount--
+      } else {
+        if (window.confirm('Вы действительно хотите удалить этот товар?')) {
+          state.items = state.items.filter(obj => obj.id !== action.payload)
+        }
+      }
+
+      if (state.totalItems > 0) state.totalItems--
+      state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
     },
-    clearItems(state) {
+    removeItems(state, action) {
+      const findItem = state.items.find(obj => obj.id === action.payload)
+      state.totalItems = state.totalItems - findItem.amount
+      state.items = state.items.filter(obj => obj.id !== action.payload)
+      state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
+    },
+    clearList(state) {
       state.items = []
+      state.totalItems = 0
+      state.totalPrice = 0
     },
   },
 })
 
-export const {addItem, removeItem, clearItems} = cartSlice.actions
+export const {addItem, removeItem, removeItems, clearList} = cartSlice.actions
 
 export default cartSlice.reducer
