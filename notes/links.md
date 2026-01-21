@@ -19,7 +19,7 @@ https://reactrouter.com/
 [#14: Оптимизируем поиск с помощью Debounce, пагинация через Redux Toolkit](https://www.youtube.com/watch?v=YAsKVCNqdy4)<br/>
 [#15: Сохраняем параметры фильтрации в URL](https://www.youtube.com/watch?v=e-sm4OOXHBc)<br/>
 [#16: Создаем Redux-логику для корзины, скрытие/показ popup-сортировки](https://www.youtube.com/watch?v=RhOvu20t0Go)<br/>
-[#17: ]()<br/>
-[#18: ]()<br/>
+[#17: Асинхронные экшены в RTK (createAsyncThunk), отлавливаем ошибки](https://www.youtube.com/watch?v=azf3uk4zOew)<br/>
+[#18: Что такое ThunkAPI в RTK? Создаем селекторы](https://www.youtube.com/watch?v=4mCR72ug1SE)<br/>
 [#19: ]()<br/>
 [#20: ]()<br/>
