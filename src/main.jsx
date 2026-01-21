@@ -1,10 +1,10 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
-import {BrowserRouter} from "react-router";
+import {BrowserRouter} from 'react-router'
 import App from '/src/App.jsx'
 
 // 12.3.0 Здесь, в корневом файле мы импортируем и хранилище Redux и обёртку Provider, ...
-import store from "/src/redux/store";
+import store from "/src/redux/store"
 import {Provider} from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
@@ -18,5 +18,5 @@ createRoot(document.getElementById('root')).render(
         <App/>
       </Provider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
