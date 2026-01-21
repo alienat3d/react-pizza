@@ -320,3 +320,37 @@ body {
     }
   }
 }
+
+.no-pizzas-title {
+  margin: 50px 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.no-pizzas-animation {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    translate: -105% 0;
+    left: 0;
+    width: 297px;
+    height: 300px;
+    background: url("/src/assets/img/pizza.webp") no-repeat center/contain;
+    animation: spin 7s 2s infinite linear, moving 5s 2s linear;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes moving {
+  from { left: 0 }
+  to { left: 1560px }
+}
