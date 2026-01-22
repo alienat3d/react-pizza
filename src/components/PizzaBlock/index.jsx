@@ -5,6 +5,7 @@ import {useState} from "react"
 import PropTypes from 'prop-types'
 import {useDispatch, useSelector} from "react-redux"
 import {addItem, selectCartItemById} from "/src/redux/slices/cartSlice.js"
+import {Link} from "react-router";
 
 const doughTypeNames = ['тонкое', 'традиционное']
 // const sizeValues = ['26', '30', '40']
@@ -43,11 +44,13 @@ export default function PizzaBlock({id, img, title, price, filling, doughTypes, 
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src={img}
-        alt={`Изображение пиццы ${title}`}
-      />
+      <Link to={`/pizza/${id}`}>
+        <img
+          className="pizza-block__image"
+          src={img}
+          alt={`Изображение пиццы ${title}`}
+        />
+      </Link>
       <h4 className="pizza-block__title">{title}{vegetarian &&
         <img className={"pizza-block__title-icon"} src={leafIcon} alt=""/>}{spicy > 0 &&
         [...Array(spicy)].map((_, idx) => (

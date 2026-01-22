@@ -8,6 +8,24 @@
   text-align: center;
   margin-bottom: 65px;
 
+  &--full-info {
+    margin: 20px 0;
+    width: 100%;
+
+    .pizza-block__image {
+      margin: 0 auto 20px;
+      width: 400px;
+    }
+    .pizza-block__title {
+      order: -1;
+      margin-bottom: 40px;
+      font-size: 45px;
+    }
+    .pizza-block__price {
+      margin: 0 auto;
+    }
+  }
+
   &__image {
     margin: 0 3px 0 auto ;
     width: 260px;
