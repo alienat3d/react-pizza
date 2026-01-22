@@ -1,7 +1,7 @@
 import pepperIcon from '/src/assets/img/pepper.svg'
 import leafIcon from '/src/assets/img/leaf.svg'
 import React from "react"
-import {useParams} from "react-router"
+import {useNavigate, useParams} from "react-router"
 import axios from "axios"
 
 // 19.1.0 Теперь, для рассмотрения хука «useParams» мы представим, что нам дали задание сделать также страницу с информацией о каждой конкретной пицце. Для этого скопируем и немного отредактируем вёрстку из компонента PizzaBlock. Но сперва настроим рутинг.
@@ -15,6 +15,9 @@ const PizzaInfo = () => {
 
   const [pizzaInfo, setPizzaInfo] = React.useState()
 
+  // 19.4 Что можно ещё сделать в этом компоненте, так это отправлять пользователя на главную страницу, если данные о пицце не будут найдены с помощью уже известного хука «useNavigate».
+  const navigate = useNavigate();
+
   // 19.2.1 Затем при помощи useEffect мы отправим один раз запрос на сервер, для получения информации об объекте конкретной пиццы, пользуясь запросом по id и взяв этот id из динамической ссылки из useParams.
   React.useEffect(() => {
     async function fetchPizzaInfo() {
@@ -23,8 +26,9 @@ const PizzaInfo = () => {
         console.log(data)
         setPizzaInfo(data)
       } catch (error) {
-        console.error('Ошибка при получении данных о пицце')
+        alert('Ошибка при получении данных о пицце')
         console.warn(error)
+        navigate('/')
       }
     }
 
