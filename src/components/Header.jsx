@@ -2,13 +2,17 @@ import logoPic from '/src/assets/img/pizza-logo.svg'
 
 import {Link} from "react-router"
 import {useSelector} from "react-redux";
+import {selectCart} from "/src/redux/slices/cartSlice.js";
 import Search from "/src/components/Search/index.jsx"
 
 // 10.1.2 Здесь мы эти данные вытаскиваем через пропсы ({searchValue, setSearchValue}).
 // 11.2.1 Теперь можно также убрать их отсюда...
 // 16.2.0 Соединим компонент с хранилищем Redux, чтобы показывать в кнопке, ведущей в область корзины, кол-во товаров и их общую стоимость. Для этого мы вытащим хуком useSelector стейты items & totalPrice... ↓
 const Header = () => {
-  const {totalPrice, totalItems} = useSelector(state => state.cart);
+  // const {totalPrice, totalItems} = useSelector(state => state.cart)
+  // 18.1.1 Теперь, мы можем сократить вызов "useSelector" до нашей функции
+  // (Go to [cartSlice.js])
+  const {totalPrice, totalItems} = useSelector(selectCart)
 
 	return (
 		<div className="header">

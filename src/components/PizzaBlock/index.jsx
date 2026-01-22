@@ -3,15 +3,17 @@ import leafIcon from '/src/assets/img/leaf.svg'
 
 import {useState} from "react"
 import PropTypes from 'prop-types'
-import {useDispatch, useSelector} from "react-redux";
-import {addItem} from "../../redux/slices/cartSlice.js";
+import {useDispatch, useSelector} from "react-redux"
+import {addItem, selectCartItemById} from "/src/redux/slices/cartSlice.js"
 
 const doughTypeNames = ['тонкое', 'традиционное']
 // const sizeValues = ['26', '30', '40']
 
 export default function PizzaBlock({id, img, title, price, filling, doughTypes, sizes, vegetarian, spicy}) {
   // 16.6.1 Добавим стейт "amount" из Redux. Для этого нам нужно искать эту пиццу по id.
-  const itemInCart = useSelector(state => state.cart.items.find(obj => obj.id === id))
+  // const itemInCart = useSelector(state => state.cart.items.find(obj => obj.id === id))
+  // 18.2.1 Заменим теперь на нашу функцию-селектор из Редакса:
+  const itemInCart = useSelector(selectCartItemById(id))
   // 16.6.2 Дальше мы будем искать в этом объекте свойство "amount", а если не найдём, то присваивать 0. ↓
   const addedItemsCount = itemInCart ? itemInCart.amount : 0
   const dispatch = useDispatch()

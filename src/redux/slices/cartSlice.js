@@ -49,6 +49,13 @@ export const cartSlice = createSlice({
   },
 })
 
+// ? 18.1.0 Если у нас в приложении много повторений useSelector одного и того, то мы можем создать специальную функцию, которая будет хранить этот useSelector:
+// (Go to [Header.jsx])
+export const selectCart = state => state.cart
+// 18.2.0 Мы также можем делать подобные селекторы, если нам нужно (но в этом случае это уже будет функция, принимающая в себя параметр id и которая возвращает другую функцию):
+// (Go to [PizzaBlock/index.jsx])
+export const selectCartItemById = id => state => state.cart.items.find(obj => obj.id === id)
+
 export const {addItem, removeItem, removeItems, clearList} = cartSlice.actions
 
 export default cartSlice.reducer
