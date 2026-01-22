@@ -1,3 +1,4 @@
 [] Fix styles (adaptive screens);
 [✓] Fix Sorting component (prolly dependencies to parent component);
 [] (Home.jsx) Разобраться с поиском (возможно вернуться на JS-поиск по массиву данных;
+[] Убрать из базы данных размеры пицц, а вместо этого переписать код так, чтобы размеры брались из выбранного в UI;
