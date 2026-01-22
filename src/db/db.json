@@ -1,7 +1,7 @@
 {
   "assortment": [
     {
-      "id": 0,
+      "id": "0",
       "img": "./src/assets/img/pizza/cola-bbq.webp",
       "title": "Кола-барбекю",
       "price": 599,
@@ -21,7 +21,7 @@
       "new": true
     },
     {
-      "id": 1,
+      "id": "1",
       "img": "./src/assets/img/pizza/beef-with-pesto.webp",
       "title": "Говядина с песто",
       "price": 639,
@@ -40,7 +40,7 @@
       "new": true
     },
     {
-      "id": 2,
+      "id": "2",
       "img": "./src/assets/img/pizza/beefstroganoff.webp",
       "title": "Бефстроганов",
       "price": 549,
@@ -61,7 +61,7 @@
       "new": true
     },
     {
-      "id": 3,
+      "id": "3",
       "img": "./src/assets/img/pizza/meaty-with-adjika.webp",
       "title": "Мясная с аджикой",
       "price": 549,
@@ -82,7 +82,7 @@
       "new": true
     },
     {
-      "id": 4,
+      "id": "4",
       "img": "./src/assets/img/pizza/prawns-with-sweet-chilis.webp",
       "title": "Креветки со сладким чили",
       "price": 619,
@@ -99,7 +99,7 @@
       "new": true
     },
     {
-      "id": 5,
+      "id": "5",
       "img": "./src/assets/img/pizza/cheesy.webp",
       "title": "Сырная",
       "price": 329,
@@ -117,7 +117,7 @@
       "vegetarian": true
     },
     {
-      "id": 6,
+      "id": "6",
       "img": "./src/assets/img/pizza/pepperoni-fresh.webp",
       "title": "Пепперони фреш",
       "price": 369,
@@ -133,7 +133,7 @@
       "filling": "Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус"
     },
     {
-      "id": 7,
+      "id": "7",
       "img": "./src/assets/img/pizza/double-chicken.webp",
       "title": "Двойной цыпленок",
       "price": 489,
@@ -153,7 +153,7 @@
       "rating": 3.9
     },
     {
-      "id": 8,
+      "id": "8",
       "img": "./src/assets/img/pizza/ham-and-cheese.webp",
       "title": "Ветчина и сыр",
       "price": 479,
@@ -173,7 +173,7 @@
       "rating": 3.7
     },
     {
-      "id": 9,
+      "id": "9",
       "img": "./src/assets/img/pizza/chorizo-fresh.webp",
       "title": "Чоризо фреш",
       "price": 319,
@@ -194,7 +194,7 @@
       "spicy": 1
     },
     {
-      "id": 10,
+      "id": "10",
       "img": "./src/assets/img/pizza/ham-and-mushrooms.webp",
       "title": "Ветчина и грибы",
       "price": 519,
@@ -214,7 +214,7 @@
       "rating": 3.9
     },
     {
-      "id": 11,
+      "id": "11",
       "img": "./src/assets/img/pizza/julien.webp",
       "title": "Жюльен",
       "price": 619,
@@ -234,7 +234,7 @@
       "rating": 5
     },
     {
-      "id": 12,
+      "id": "12",
       "img": "./src/assets/img/pizza/pesto.webp",
       "title": "Песто",
       "price": 649,
@@ -254,7 +254,7 @@
       "rating": 3.9
     },
     {
-      "id": 13,
+      "id": "13",
       "img": "./src/assets/img/pizza/carbonara.webp",
       "title": "Карбонара",
       "price": 659,
@@ -274,7 +274,7 @@
       "rating": 4.2
     },
     {
-      "id": 14,
+      "id": "14",
       "img": "./src/assets/img/pizza/meaty.webp",
       "title": "Мясная",
       "price": 609,
@@ -294,7 +294,7 @@
       "rating": 4.9
     },
     {
-      "id": 15,
+      "id": "15",
       "img": "./src/assets/img/pizza/arriva.webp",
       "title": "Аррива!",
       "price": 669,
@@ -315,7 +315,7 @@
       "spicy": 2
     },
     {
-      "id": 16,
+      "id": "16",
       "img": "./src/assets/img/pizza/burger-pizza.webp",
       "title": "Бургер-пицца",
       "price": 559,
@@ -335,7 +335,7 @@
       "rating": 3.5
     },
     {
-      "id": 17,
+      "id": "17",
       "img": "./src/assets/img/pizza/cheesy-chicken.webp",
       "title": "Сырный цыпленок",
       "price": 669,
@@ -355,7 +355,7 @@
       "rating": 4.3
     },
     {
-      "id": 18,
+      "id": "18",
       "img": "./src/assets/img/pizza/pepperoni.webp",
       "title": "Пепперони",
       "price": 519,
@@ -376,7 +376,7 @@
       "spicy": 1
     },
     {
-      "id": 19,
+      "id": "19",
       "img": "./src/assets/img/pizza/four-seasons.webp",
       "title": "Четыре сезона",
       "price": 529,
@@ -396,7 +396,7 @@
       "rating": 5
     },
     {
-      "id": 20,
+      "id": "20",
       "img": "./src/assets/img/pizza/hawaii.webp",
       "title": "Гавайская",
       "price": 539,
@@ -416,7 +416,7 @@
       "rating": 4.9
     },
     {
-      "id": 21,
+      "id": "21",
       "img": "./src/assets/img/pizza/bbq-chicken.webp",
       "title": "Цыпленок барбекю",
       "price": 679,
@@ -436,7 +436,7 @@
       "rating": 4.5
     },
     {
-      "id": 22,
+      "id": "22",
       "img": "./src/assets/img/pizza/chicken-ranch.webp",
       "title": "Цыпленок Ранч",
       "price": 699,
@@ -456,7 +456,7 @@
       "rating": 4.3
     },
     {
-      "id": 23,
+      "id": "23",
       "img": "./src/assets/img/pizza/margherita.webp",
       "title": "Маргарита",
       "price": 529,
@@ -474,7 +474,7 @@
       "vegetarian": true
     },
     {
-      "id": 24,
+      "id": "24",
       "img": "./src/assets/img/pizza/diablo.webp",
       "title": "Диабло",
       "price": 679,
@@ -495,7 +495,7 @@
       "spicy": 2
     },
     {
-      "id": 25,
+      "id": "25",
       "img": "./src/assets/img/pizza/bbq-sausages.webp",
       "title": "Колбаски барбекю",
       "price": 549,
@@ -515,7 +515,7 @@
       "rating": 4.9
     },
     {
-      "id": 26,
+      "id": "26",
       "img": "./src/assets/img/pizza/mushrooms-and-vegetables.webp",
       "title": "Овощи и грибы",
       "price": 609,
@@ -533,7 +533,7 @@
       "vegetarian": true
     },
     {
-      "id": 27,
+      "id": "27",
       "img": "./src/assets/img/pizza/double-pepperoni.webp",
       "title": "Двойная пепперони",
       "price": 639,
