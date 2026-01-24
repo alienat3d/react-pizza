@@ -1,8 +1,10 @@
-import {Link} from "react-router";
-import {useDispatch, useSelector} from "react-redux";
-import {clearList} from "/src/redux/slices/cartSlice.js";
-import EmptyCart from "/src/pages/EmptyCart.jsx";
-import CartItem from "/src/components/CartItem.jsx";
+import iconCartDark from '/src/assets/img/icons/icon-cart--dark.svg'
+
+import {Link} from "react-router"
+import {useDispatch, useSelector} from "react-redux"
+import {clearList} from "../redux/slices/cartSlice"
+import EmptyCart from "./EmptyCart"
+import CartItem from "../components/CartItem"
 
 export const Cart = () => {
 // 16.7.0 Здесь мы будем заполнять вёрстку динамически из данных о добавленных пиццах в Redux хранилище. Поэтому, сперва мы извлечём те данные, которые нам понадобятся с помощью хука "useSelector" и будем их вставлять, а также необходимые экшены с помощью "dispatch".
@@ -23,10 +25,7 @@ export const Cart = () => {
       <div className="cart">
         <div className="cart__top">
           <h2 className="content__title">
-            <svg width="18" height="18" viewBox="0 0 18 18">
-              <path stroke="#fff" fill="none"
-                    d="M6.333 16.333a1.333 1.333 0 1 0 0-2.666 1.333 1.333 0 0 0 0 2.666Zm8 0a1.333 1.333 0 1 0 0-2.666 1.333 1.333 0 0 0 0 2.666ZM4.78 5h11.553l-1.12 5.593a1.334 1.334 0 0 1-1.333 1.074H6.833a1.334 1.334 0 0 1-1.333-1.16l-1.013-7.68a1.333 1.333 0 0 0-1.32-1.16h-1.5"/>
-            </svg>
+              <img src={iconCartDark} alt=""/>
             Корзина
           </h2>
           <button onClick={onClickClearList} className="cart__clear">
@@ -40,7 +39,7 @@ export const Cart = () => {
         <div className="content__items">
           {/* 16.7.2 Однако, сперва проведём небольшой рефакторинг и поместим вёрстку с информацией о добавленной пицце в отдельный компонент. */}
           {/* 16.7.3 Их мы будем выводить циклом. */}
-          {/*(Go to [/components/CartItem.jsx])*/}
+          {/*(Go to [/components/CartItem.tsx])*/}
           {
             items.map(item => <CartItem key={item.id} {...item}/>)
           }
