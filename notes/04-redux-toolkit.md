@@ -3,7 +3,7 @@
 [Пример реализации простых счётчиков с Redux Toolkit](https://codesandbox.io/p/sandbox/react-redux-example-gd02iq)
 
 // ? 12.1 «Redux Toolkit» является сама по себе библиотекой, которая не завязан на React и может быть использована в разных вариациях, как с React, так и с Vue, Angular или Vanilla JS. А "React Redux" это уже пакет, который помогает подружить React Toolkit & React.
-// 12.2 Итак, после того, как мы установили Redux Toolkit ("npm install @reduxjs/toolkit") & React Redux ("npm install react-redux"), мы создадим новую папку Redux, где будем хранить все файлы, связанные с Redux. Там создадим файл "store.js" — это будет хранилищем Redux.
+// 12.2 Итак, после того, как мы установили Redux Toolkit ("npm install @reduxjs/toolkit") & React Redux ("npm install react-redux"), мы создадим новую папку Redux, где будем хранить все файлы, связанные с Redux. Там создадим файл "store.ts" — это будет хранилищем Redux.
 [Redux Toolkit Docs](https://redux-toolkit.js.org/)
 [Redux Toolkit Docs](https://react-redux.js.org/)
-(Go to [main.jsx])
+(Go to [main.tsx])

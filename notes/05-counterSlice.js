@@ -21,7 +21,7 @@ export const counterSlice = createSlice({
 })
 
 // 12.6 Здесь мы экспортируем методы этого слайса.
-// (Go to [store.js])
+// (Go to [store.ts])
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 export default counterSlice.reducer

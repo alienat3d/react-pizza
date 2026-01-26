@@ -36,14 +36,14 @@ export default function App() {
     <SearchContext.Provider value={{searchValue, setSearchValue}}>
       <div className="wrapper">
         {/* 10.1.1 Далее нам нужно прокинуть и сам стейт и запись стейта в комп. Header. */}
-        {/* (go to [Header.jsx]) */}
+        {/* (go to [Header.tsx]) */}
         {/* 11.2.0 Теперь можно здесь убрать пропсы для стейта и записи стейта searchValue. */}
         {/*<Header searchValue={searchValue} setSearchValue={setSearchValue}/>*/}
-        {/* (Go to [Header.jsx]) */}
+        {/* (Go to [Header.tsx]) */}
         <Header/>
         <div className="content">
           {/* 7.4.1 Далее в этом компоненте нам нужно в общий неизменяемый контейнер добавить Routes и Route, для каждого из возможных путей сайта. Вначале у нас будет идти путь к главной странице, а в конце к 404-ой странице. */}
-          {/* (go to [Header.jsx]) */}
+          {/* (go to [Header.tsx]) */}
           <Routes>
             {/* 10.5 Итак, мы прокидываем в Home стейт "searchValue". */}
             {/* (Go to [Home]) */}

@@ -6,7 +6,7 @@ import PizzaBlock from "/src/components/PizzaBlock"
 import Skeleton from "/src/components/PizzaBlock/Skeleton.jsx"
 import Pagination from "/src/components/Pagination/index.jsx"
 
-// import {SearchContext} from "../App.jsx"
+// import {SearchContext} from "../App.tsx"
 import {useDispatch, useSelector} from 'react-redux'
 import {setPageNumber} from "/src/redux/slices/paginationSlice.js"
 
@@ -113,7 +113,7 @@ const Home = () => {
     if (params.length > 0) link += '?' + params.join('&')
 
     // 10.9 Честно говоря, поиск в MockAPI, хотя и работает, но довольно странно, точнее работает сам по себе, но не в сочетании с фильтрами.
-    // (go to [Pagination/index.jsx])
+    // (go to [Pagination/index.tsx])
     // TODO: Разобраться с поиском (возможно вернуться на JS-поиск по массиву данных.
     if (searchValue) {
       link += `&search=${searchValue}`
@@ -123,7 +123,7 @@ const Home = () => {
   }
 
   // 14.1.1 Также мы продолжим рефакторинг и здесь.
-  // (Go to [/Search/index.jsx])
+  // (Go to [/Search/index.tsx])
   /*React.useEffect(() => {
     setIsLoading(true)
 

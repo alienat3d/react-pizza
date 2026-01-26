@@ -1,14 +1,15 @@
+import React from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {setCategoryName} from "/src/redux/slices/filterSlice.js";
+import {setCategoryName} from "/src/redux/slices/filterSlice.js"
 
 const categories = ['Все', 'Новинки', 'Мясо', 'Вегетарианские', 'Гриль', 'Острые', 'Курица']
 const categoriesEnWords = ['all', 'new', 'meaty', 'vegetarian', 'grill', 'spicy', 'chicken']
 
 // 9.0.2 Теперь мы передаём в пропсы функции Categories value & кастомную функцию onChangeCategory.
-// (go to [Home.jsx])
+// (go to [Home.tsx])
 // 9.1.2 Здесь же в параметрах комп. Categories параметр "onChangeCategory" у нас является, по сути, placeholder'ом для анонимной коллбэк-функции внутри пропса "onChangeCategory", ...
 // export default function Categories({value, onChangeCategory}) {
-export default function Categories() {
+const Categories = () => {
   const {categoryName} = useSelector(state => state.filter)
   const dispatch = useDispatch()
 
@@ -18,7 +19,7 @@ export default function Categories() {
   return (
     <div className="categories">
       {/* 9.1.3 ... которая, в свою очередь, передаётся в слушатель события по клику и забирает в себя index, который также будет "id" в комп. Home. Этот "id" в итоге попадёт в стейт "categoryId" и будет использоваться в запросах к серверу для сортировки пицц. */}
-      {/* (go to [Home.jsx]) */}
+      {/* (go to [Home.tsx]) */}
       <ul>
         {
           categories.map((name, index) => (
@@ -34,3 +35,5 @@ export default function Categories() {
     </div>
   )
 }
+
+export default Categories

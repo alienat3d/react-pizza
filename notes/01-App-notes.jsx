@@ -19,11 +19,11 @@ import '@/scss/app.scss'
 
 // import { assortment } from '@/db/db.json'
 
-import Header from "@/components/Header.jsx"
-import Categories from "@/components/Categories.jsx"
-import Sort from "@/components/Sorting.jsx"
+import Header from "@/components/Header.tsx"
+import Categories from "@/components/Categories.tsx"
+import Sort from "@/components/Sorting.tsx"
 import PizzaItem from "@/components/PizzaItem"
-import Skeleton from "@/components/PizzaItem/Skeleton.jsx"
+import Skeleton from "@/components/PizzaItem/Skeleton.tsx"
 import React from "react"
 
 // 7.1 Далее нам нужен некий "флажок", который будет давать команду react, что идёт загрузка страницы и нужно показывать Skeleton.

@@ -4,7 +4,7 @@ import Sorting from "/src/components/Sorting.jsx"
 import PizzaBlock from "/src/components/PizzaBlock"
 import Skeleton from "/src/components/PizzaBlock/Skeleton.jsx"
 import Pagination from "/src/components/Pagination/index.jsx";
-import {SearchContext} from "../App.jsx";
+import {SearchContext} from "../App.tsx";
 
 // export const Home = ({searchValue}) => {
 const Home = () => {
@@ -93,7 +93,7 @@ const Home = () => {
     if (params.length > 0) link += '?' + params.join('&')
 
     // 10.9 Честно говоря, поиск в MockAPI, хотя и работает, но довольно странно, точнее работает сам по себе, но не в сочетании с фильтрами.
-    // (go to [Pagination/index.jsx])
+    // (go to [Pagination/index.tsx])
     // TODO: Разобраться с поиском (возможно вернуться на JS-поиск по массиву данных.
     if (searchValue) {
       link += `&search=${searchValue}`
@@ -130,9 +130,9 @@ const Home = () => {
     <div className="container">
       <div className="content__top">
         {/* 9.0.1 Дальше мы должны передать стейты в дочерние компоненты через пропсы. */}
-        {/* (go to [Categories.jsx]) */}
+        {/* (go to [Categories.tsx]) */}
         {/* 9.1.1 Сперва мы формируем пропс с анонимной коллбэк-функцией внутри, куда передаём функцию изменения стейта setCategoryId, куда аргументом передаём id из комп. Categories. */}
-        {/* (go to [Categories.jsx]) */}
+        {/* (go to [Categories.tsx]) */}
         {/*<Categories value={categoryId} onChangeCategory={(id) => setCategoryId(id)}/>*/}
         <Categories value={categoryName} onChangeCategory={(name) => setCategoryName(name)}/>
         <Sorting value={sortingType}

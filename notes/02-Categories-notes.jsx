@@ -11,7 +11,7 @@ export default function Categories() {
 	const categories = ['Все', 'Новинки', 'Мясо', 'Вегетарианские', 'Гриль', 'Острые', 'Курица']
 
 	// 5.1 Далее мы создадим анонимную стрелочную функцию, которая будет вызывать функцию onClickCategory и передадим в неё индекс каждого из элементов.
-	// (go to [src\components\Sorting.jsx])
+	// (go to [src\components\Sorting.tsx])
 	return (
 		<div className="categories">
 			<ul>
