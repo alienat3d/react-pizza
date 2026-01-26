@@ -21,5 +21,13 @@ https://reactrouter.com/
 [#16: Создаем Redux-логику для корзины, скрытие/показ popup-сортировки](https://www.youtube.com/watch?v=RhOvu20t0Go)<br/>
 [#17: Асинхронные экшены в RTK (createAsyncThunk), отлавливаем ошибки](https://www.youtube.com/watch?v=azf3uk4zOew)<br/>
 [#18: Что такое ThunkAPI в RTK? Создаем селекторы](https://www.youtube.com/watch?v=4mCR72ug1SE)<br/>
-[#19: ]()<br/>
-[#20: ]()<br/>
+[#19: Разбираемся подробней с роутером (useParams, useLocation, Outlet)](https://www.youtube.com/watch?v=06bh14iY3dA)<br/>
+[#20: Что такое TypeScript и зачем он нужен?](https://www.youtube.com/watch?v=9MUudEhpj2A)<br/>
+[#21: Используем TypeScript + ReactJS (практика)](https://www.youtube.com/watch?v=9rA2bXWDLjw)<br/>
+[#22: Типизируем пропсы (props) и хук useRef (TypeScript)](https://www.youtube.com/watch?v=7QdQc-KwWKE)<br/>
+[#23: ]()<br/>
+[#24: ]()<br/>
+[#25: ]()<br/>
+[#26: ]()<br/>
+[#27: ]()<br/>
+[#28: ]()
