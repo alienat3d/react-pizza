@@ -5,7 +5,7 @@ import debounce from "lodash.debounce"
 import {useDispatch} from "react-redux"
 import {setInputValue} from "/src/redux/slices/searchSlice.js"
 
-// import {SearchContext} from "/src/App.jsx"
+// import {SearchContext} from "/src/App.tsx"
 
 const Search = () => {
   // const {searchValue, setSearchValue} = React.useContext(SearchContext)

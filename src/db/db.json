@@ -5,13 +5,6 @@
       "img": "./src/assets/img/pizza/cola-bbq.webp",
       "title": "Кола-барбекю",
       "price": 599,
-      "doughTypes": [
-        1
-      ],
-      "sizes": [
-        30,
-        35
-      ],
       "filling": "Пряная говядина, пикантная пепперони, острые колбаски чоризо, соус кола-барбекю, моцарелла и фирменный томатный соус",
       "category": [
         "meaty",
@@ -25,13 +18,6 @@
       "img": "./src/assets/img/pizza/beef-with-pesto.webp",
       "title": "Говядина с песто",
       "price": 639,
-      "doughTypes": [
-        0
-      ],
-      "sizes": [
-        25,
-        30
-      ],
       "filling": "Пряная говядина, соус песто, шампиньоны, сладкий перец, моцарелла, красный лук, фирменный соус альфредо",
       "category": [
         "meaty"
@@ -44,15 +30,6 @@
       "img": "./src/assets/img/pizza/beefstroganoff.webp",
       "title": "Бефстроганов",
       "price": 549,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Пряная говядина, шампиньоны, ароматный грибной соус, маринованные огурчики, моцарелла, красный лук, фирменный соус альфредо",
       "category": [
         "meaty"
@@ -65,14 +42,6 @@
       "img": "./src/assets/img/pizza/meaty-with-adjika.webp",
       "title": "Мясная с аджикой",
       "price": 549,
-      "doughTypes": [
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Баварские колбаски, острый соус аджика, острые колбаски чоризо, цыпленок, пикантная пепперони, моцарелла, фирменный томатный соус",
       "category": [
         "meaty", "chicken"
@@ -86,14 +55,6 @@
       "img": "./src/assets/img/pizza/prawns-with-sweet-chilis.webp",
       "title": "Креветки со сладким чили",
       "price": 619,
-      "doughTypes": [
-        0
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Креветки, ананасы, соус сладкий чили, сладкий перец, моцарелла, фирменный соус альфредо",
       "rating": 4.4,
       "new": true
@@ -103,15 +64,6 @@
       "img": "./src/assets/img/pizza/cheesy.webp",
       "title": "Сырная",
       "price": 329,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Моцарелла, сыры чеддер и пармезан, фирменный соус альфредо",
       "rating": 4.3,
       "vegetarian": true
@@ -121,15 +73,6 @@
       "img": "./src/assets/img/pizza/pepperoni-fresh.webp",
       "title": "Пепперони фреш",
       "price": 369,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус"
     },
     {
@@ -137,15 +80,6 @@
       "img": "./src/assets/img/pizza/double-chicken.webp",
       "title": "Двойной цыпленок",
       "price": 489,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, моцарелла, фирменный соус альфредо",
       "category": [
         "chicken"
@@ -157,15 +91,6 @@
       "img": "./src/assets/img/pizza/ham-and-cheese.webp",
       "title": "Ветчина и сыр",
       "price": 479,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Ветчина, моцарелла, фирменный соус альфредо",
       "category": [
         "meaty"
@@ -177,15 +102,6 @@
       "img": "./src/assets/img/pizza/chorizo-fresh.webp",
       "title": "Чоризо фреш",
       "price": 319,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Острые колбаски чоризо, сладкий перец, моцарелла, фирменный томатный соус",
       "category": [
         "meaty"
@@ -198,15 +114,6 @@
       "img": "./src/assets/img/pizza/ham-and-mushrooms.webp",
       "title": "Ветчина и грибы",
       "price": 519,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Ветчина, шампиньоны, увеличенная порция моцареллы, фирменный томатный соус",
       "category": [
         "meaty"
@@ -218,15 +125,6 @@
       "img": "./src/assets/img/pizza/julien.webp",
       "title": "Жюльен",
       "price": 619,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, шампиньоны, ароматный грибной соус, лук, сухой чеснок, моцарелла, смесь сыров чеддер и пармезан, фирменный соус альфредо",
       "category": [
         "chicken"
@@ -238,15 +136,6 @@
       "img": "./src/assets/img/pizza/pesto.webp",
       "title": "Песто",
       "price": 649,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, соус песто, кубики брынзы, томаты, моцарелла, фирменный соус альфредо",
       "category": [
         "chicken"
@@ -258,15 +147,6 @@
       "img": "./src/assets/img/pizza/carbonara.webp",
       "title": "Карбонара",
       "price": 659,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок, фирменный соус альфредо, итальянские травы",
       "category": [
         "meaty"
@@ -278,15 +158,6 @@
       "img": "./src/assets/img/pizza/meaty.webp",
       "title": "Мясная",
       "price": 609,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, ветчина, пикантная пепперони, острые колбаски чоризо, моцарелла, фирменный томатный соус",
       "category": [
         "meaty", "chicken"
@@ -298,15 +169,6 @@
       "img": "./src/assets/img/pizza/arriva.webp",
       "title": "Аррива!",
       "price": 669,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, острые колбаски чоризо, соус бургер, сладкий перец, красный лук, томаты, моцарелла, соус ранч, чеснок",
       "category": [
         "meaty", "chicken"
@@ -319,15 +181,6 @@
       "img": "./src/assets/img/pizza/burger-pizza.webp",
       "title": "Бургер-пицца",
       "price": 559,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Ветчина, маринованные огурчики, томаты, красный лук, чеснок, соус бургер, моцарелла, фирменный томатный соус",
       "category": [
         "meaty", "bbq"
@@ -339,15 +192,6 @@
       "img": "./src/assets/img/pizza/cheesy-chicken.webp",
       "title": "Сырный цыпленок",
       "price": 669,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, фирменный соус альфредо, чеснок",
       "category": [
         "chicken"
@@ -359,15 +203,6 @@
       "img": "./src/assets/img/pizza/pepperoni.webp",
       "title": "Пепперони",
       "price": 519,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Пикантная пепперони, увеличенная порция моцареллы, фирменный томатный соус",
       "category": [
         "meaty"
@@ -380,15 +215,6 @@
       "img": "./src/assets/img/pizza/four-seasons.webp",
       "title": "Четыре сезона",
       "price": 529,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Увеличенная порция моцареллы, ветчина, пикантная пепперони, кубики брынзы, томаты, шампиньоны, итальянские травы, фирменный томатный соус",
       "category": [
         "meaty"
@@ -400,15 +226,6 @@
       "img": "./src/assets/img/pizza/hawaii.webp",
       "title": "Гавайская",
       "price": 539,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Двойная порция цыпленка, ананасы, моцарелла, фирменный соус альфредо",
       "category": [
         "chicken"
@@ -420,15 +237,6 @@
       "img": "./src/assets/img/pizza/bbq-chicken.webp",
       "title": "Цыпленок барбекю",
       "price": 679,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, бекон, соус барбекю, красный лук, моцарелла, фирменный томатный соус",
       "category": [
         "meaty", "chicken", "grill"
@@ -440,15 +248,6 @@
       "img": "./src/assets/img/pizza/chicken-ranch.webp",
       "title": "Цыпленок Ранч",
       "price": 699,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Цыпленок, ветчина, соус ранч, моцарелла, томаты, чеснок, фирменный соус альфредо",
       "category": [
         "meaty", "chicken"
@@ -460,15 +259,6 @@
       "img": "./src/assets/img/pizza/margherita.webp",
       "title": "Маргарита",
       "price": 529,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Увеличенная порция моцареллы, томаты, итальянские травы, фирменный томатный соус",
       "rating": 4.1,
       "vegetarian": true
@@ -478,15 +268,6 @@
       "img": "./src/assets/img/pizza/diablo.webp",
       "title": "Диабло",
       "price": 679,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Острые колбаски чоризо, острый перец халапеньо, соус барбекю, митболы из говядины, томаты, сладкий перец, красный лук, моцарелла, фирменный томатный соус",
       "category": [
         "meaty", "grill"
@@ -499,15 +280,6 @@
       "img": "./src/assets/img/pizza/bbq-sausages.webp",
       "title": "Колбаски барбекю",
       "price": 549,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Острые колбаски чоризо, соус барбекю, томаты, красный лук, моцарелла, фирменный томатный соус",
       "category": [
         "meaty", "grill"
@@ -519,15 +291,6 @@
       "img": "./src/assets/img/pizza/mushrooms-and-vegetables.webp",
       "title": "Овощи и грибы",
       "price": 609,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, фирменный томатный соус, итальянские травы",
       "rating": 4.5,
       "vegetarian": true
@@ -537,15 +300,6 @@
       "img": "./src/assets/img/pizza/double-pepperoni.webp",
       "title": "Двойная пепперони",
       "price": 639,
-      "doughTypes": [
-        0,
-        1
-      ],
-      "sizes": [
-        25,
-        30,
-        35
-      ],
       "filling": "Двойная порция пикантной пепперони, увеличенная порция моцареллы, фирменный томатный соус",
       "category": [
         "meaty"

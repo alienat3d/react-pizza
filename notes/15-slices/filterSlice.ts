@@ -25,7 +25,7 @@ export const filterSlice = createSlice({
       state.sortingTypeId = action.payload
     },
     // 15.5.1 Здесь нам понадобится отдельный экшен setFilters. Также сделаем и в [paginationSlice.js]
-    // (Go to [Home.jsx])
+    // (Go to [Home.tsx])
     setFilters(state, action) {
       state.categoryName = action.payload.categoryName
       state.currentPage = Number(action.payload.currentPage)
@@ -39,5 +39,5 @@ export const filterSlice = createSlice({
 export const {setCategoryName, setPageNumber, setSortingDirection, setSortingTypeId, setFilters} = filterSlice.actions
 
 // 13.0.3 А по умолчанию экспортируем редьюсер.
-// (Go to [/redux/store.js])
+// (Go to [/redux/store.ts])
 export default filterSlice.reducer

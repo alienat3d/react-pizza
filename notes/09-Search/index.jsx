@@ -1,12 +1,12 @@
 import styles from './Search.module.scss'
 import React from "react";
 // 11.2.5.0 Нам ещё нехватает импорта самого SearchContext сюда...
-// (Go to [App.jsx])
+// (Go to [App.tsx])
 import {SearchContext} from "/src/App.jsx";
 
 // 10.1.4 Теперь в 09-Search мы снова вытаскиваем эти данные
 // 11.2.3 И отсюда тоже уберём.
-// 11.2.4 Но, чтобы воспользоваться Реакт контекстом, нам нужно использовать здесь спец. хук "useContext". И т.к. мы в [App.jsx] указали в value для обёртки "SearchContext.Provider" "searchValue" и "setSearchValue", то здесь мы можем их вытащить через хук.
+// 11.2.4 Но, чтобы воспользоваться Реакт контекстом, нам нужно использовать здесь спец. хук "useContext". И т.к. мы в [App.tsx] указали в value для обёртки "SearchContext.Provider" "searchValue" и "setSearchValue", то здесь мы можем их вытащить через хук.
 const Search = () => {
   const {searchValue, setSearchValue} = React.useContext(SearchContext)
 
@@ -29,7 +29,7 @@ const Search = () => {
       </button>
       {/* 10.2 Тут мы подошли к теме контролируемых инпутов (https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable). Чтобы сделать этот инпут контролируемым, мы допишем слушатель по событию onChange и будем получать значение ввода через "event.target.value". А значение сохранять в стейт searchValue. */}
       {/* 10.3 Отлично, теперь у нас сохраняются любые данные, введённые в этот инпут в стейте "searchValue" в App компоненте. Однако в рекомендациях React также стоит, что тот инпут, который меняет стейт, следует также засинхронизировать со стейтом, то бишь хранить в нём значение стейта. Для этого поместим в директиву "value" значение стейта "searchValue". Теперь этот инпут считается котролируемым Реактом. */}
-      {/* (Go to [App.jsx]) */}
+      {/* (Go to [App.tsx]) */}
       <input value={searchValue} onChange={evt => setSearchValue(evt.target.value)} className={styles.input}
              placeholder={'Название пиццы...'} name="search"/>
     </label>

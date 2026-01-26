@@ -1,9 +1,10 @@
+import React from "react"
 import ContentLoader from "react-content-loader"
 
 // 7.0 Skeleton (взят с https://skeletonreact.com/) у нас нужен для красивого отображения ещё незагруженного контента на странице. Его мы рисуем на специальном ресурсе по размерам близко похожим на сами загружаемые блоки.
-// (Go to [pages/Home.jsx])
+// (Go to [pages/Home.tsx])
 
-const Skeleton = (props) => (
+const Skeleton: React.FC = (props) => (
   <ContentLoader
     className="pizza-block"
     speed={2}

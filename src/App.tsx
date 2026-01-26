@@ -16,11 +16,11 @@ import '/src/assets/fonts/proxima-nova-bold.woff'
 import '/src/assets/fonts/proxima-nova-bold.ttf'
 import '/src/scss/app.scss'
 import {Route, Routes} from "react-router"
-import Home from "/src/pages/Home.jsx"
-import {Cart} from "/src/pages/Cart.jsx"
-import {Page404} from "/src/pages/404.jsx"
-import PizzaInfo from "/src/pages/PizzaInfo.jsx";
-import Header from "/src/components/Header.jsx"
+import Home from "./pages/Home"
+import {Cart} from "./pages/Cart"
+import {Page404} from "./pages/404"
+import PizzaInfo from "./pages/PizzaInfo"
+import Header from "./components/Header"
 
 export default function App() {
   return (
@@ -31,7 +31,7 @@ export default function App() {
             <Route index element={<Home/>}/>
             <Route path="cart" element={<Cart/>}/>
             {/* 19.1.1 Здесь нам потребуется сделать динамическую ссылку (с помощью ":" и динамического параметра после "id" (он может быть любым)), т.к. пиццы на странице комп. PizzaInfo будут разные, в зависимости от того, на какую кликнет пользователь. А чтобы определить информацию о какой пицце нам нужно открыть нам поможет id этой пиццы, которую мы будем прокидывать в комп. PizzaInfo. */}
-            {/*(Go to [PizzaInfo.jsx])*/}
+            {/*(Go to [PizzaInfo.tsx])*/}
             <Route path="/pizza/:id" element={<PizzaInfo/>}/>
             <Route path="*" element={<Page404/>}/>
           </Routes>

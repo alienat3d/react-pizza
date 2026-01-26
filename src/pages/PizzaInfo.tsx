@@ -5,15 +5,24 @@ import {useNavigate, useParams} from "react-router"
 import axios from "axios"
 
 // 19.1.0 Теперь, для рассмотрения хука «useParams» мы представим, что нам дали задание сделать также страницу с информацией о каждой конкретной пицце. Для этого скопируем и немного отредактируем вёрстку из компонента PizzaBlock. Но сперва настроим рутинг.
-// (Go to [App.jsx])
+// (Go to [App.tsx])
 
-const PizzaInfo = () => {
+// 21.0.0 После установки TypeScript (npm install --save-dev typescript) и создание файла tsconfig.json в корне проекта, мы будем потихоньку исправлять ошибки, добавляя типизацию. Начнём с того, что добавим этому компоненту специальный тип "React.FC" (FunctionalComponent) ↓
+const PizzaInfo: React.FC = () => {
   const URL = 'https://6952a95b3b3c518fca135a9c.mockapi.io'
   // 19.2.0 Теперь, с помощью хука «useParams» мы можем вытащить динамический параметр (в данном случае "id"), чтобы осуществить правильный рендер страницы.
   // ? Кстати, пришлось превратить все значения свойства объектов "id" из цифр в строчки, т.к. иначе MockAPI не находит отдельные элементы по id.
   const {id} = useParams()
 
-  const [pizzaInfo, setPizzaInfo] = React.useState()
+  // 21.0.1 Здесь, нам нужно указать, что функция «useState» у нас будет принимать объект. Затем мы перечислим все его свойства с указанием их типов данных.
+  const [pizzaInfo, setPizzaInfo] = React.useState<{
+      img: string
+      title: string
+      vegetarian: boolean
+      spicy: number
+      filling: string
+      price: number
+  }>()
 
   // 19.4 Что можно ещё сделать в этом компоненте, так это отправлять пользователя на главную страницу, если данные о пицце не будут найдены с помощью уже известного хука «useNavigate».
   const navigate = useNavigate();
