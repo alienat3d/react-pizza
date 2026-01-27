@@ -1,19 +1,19 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {RootState} from "../store";
+import {RootState} from "../store"
 
 // 22.7.0 По примеру, как мы уже делали в [filterSlice.ts], напишем типизацию и для этого слайса. ↓
 export interface CartState {
-    totalItems: number;
-    totalPrice: number;
-    items: Items[];
+    totalItems: number
+    totalPrice: number
+    items: Items[]
 }
 
 export interface Items {
-    id: string;
-    img: string;
-    title: string;
-    price: number;
-    amount: number;
+    id: string
+    img: string
+    title: string
+    price: number
+    amount: number
 }
 
 const initialState: CartState = {

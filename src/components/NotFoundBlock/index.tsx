@@ -2,7 +2,7 @@
 // (go to [main.tsx])
 import styles from './NotFoundBlock.module.scss'
 
-export const NotFoundBlock = () => {
+const NotFoundBlock = () => {
   return (
     <div className={styles.root}>
       <strong>¯\_(ツ)_/¯</strong>
@@ -11,3 +11,5 @@ export const NotFoundBlock = () => {
     </div>
   )
 }
+
+export default NotFoundBlock

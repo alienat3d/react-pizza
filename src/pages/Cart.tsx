@@ -1,5 +1,6 @@
 import iconCartDark from '/src/assets/img/icons/icon-cart--dark.svg'
 
+import React from "react"
 import {Link} from "react-router"
 import {useDispatch, useSelector} from "react-redux"
 import {RootState} from "../redux/store"
@@ -7,7 +8,7 @@ import {clearList} from "../redux/slices/cartSlice"
 import EmptyCart from "./EmptyCart"
 import CartItem from "../components/CartItem"
 
-export const Cart = () => {
+export const Cart: React.FC = () => {
 // 16.7.0 Здесь мы будем заполнять вёрстку динамически из данных о добавленных пиццах в Redux хранилище. Поэтому, сперва мы извлечём те данные, которые нам понадобятся с помощью хука "useSelector" и будем их вставлять, а также необходимые экшены с помощью "dispatch".
     const {totalItems, totalPrice} = useSelector((state: RootState) => state.cart)
     // 16.7.1 А ещё нам потребуется массив со всеми добавленными пиццами, чтобы отрендерить их на странице корзины.

@@ -1,5 +1,6 @@
 import pepperIcon from '/src/assets/img/pepper.svg'
 import leafIcon from '/src/assets/img/leaf.svg'
+
 import React from "react"
 import {useNavigate, useParams} from "react-router"
 import axios from "axios"
