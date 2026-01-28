@@ -1,14 +1,15 @@
 import React from "react"
-import {useDispatch, useSelector} from "react-redux"
+// import {useDispatch, useSelector} from "react-redux"
+import {useAppDispatch, useAppSelector} from '../redux/hooks'
 import {setCategoryName} from "../redux/slices/filterSlice"
-import {RootState} from "../redux/store";
+// import {RootState} from "../redux/store"
 
 const categories:string[] = ['Все', 'Новинки', 'Мясо', 'Вегетарианские', 'Гриль', 'Острые', 'Курица']
 const categoriesEnWords:string[] = ['all', 'new', 'meaty', 'vegetarian', 'grill', 'spicy', 'chicken']
 
 const Categories: React.FC = () => {
-  const {categoryName} = useSelector((state: RootState) => state.filter)
-  const dispatch = useDispatch()
+  const {categoryName} = useAppSelector(state => state.filter)
+  const dispatch = useAppDispatch()
 
   // Создадим функцию, которая будет переводить индексы категорий в английские слова для наглядности и уже их мы будем передавать родительскому компоненту
   const categoryIndexToWord = (index: number) => categoriesEnWords[index]

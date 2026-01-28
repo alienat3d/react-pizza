@@ -26,14 +26,13 @@ const PizzaInfo: React.FC = () => {
   }>()
 
   // 19.4 Что можно ещё сделать в этом компоненте, так это отправлять пользователя на главную страницу, если данные о пицце не будут найдены с помощью уже известного хука «useNavigate».
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // 19.2.1 Затем при помощи useEffect мы отправим один раз запрос на сервер, для получения информации об объекте конкретной пиццы, пользуясь запросом по id и взяв этот id из динамической ссылки из useParams.
   React.useEffect(() => {
     async function fetchPizzaInfo() {
       try {
         const {data} = await axios.get(`${URL}/items/${id}`)
-        console.log(data)
         setPizzaInfo(data)
       } catch (error) {
         alert('Ошибка при получении данных о пицце')

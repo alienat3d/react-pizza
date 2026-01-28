@@ -1,7 +1,8 @@
 import React from "react"
-import {useDispatch, useSelector} from "react-redux"
 import {FilterState, setSortingDirection, setSortingTypeId} from "../redux/slices/filterSlice"
-import {RootState} from "../redux/store";
+// import {useDispatch, useSelector} from "react-redux"
+// import {RootState} from "../redux/store"
+import {useAppDispatch, useAppSelector} from '../redux/hooks'
 
 const sortingList: { id: number; name: string }[] = [
     {id: 0, name: 'популярности'},
@@ -10,8 +11,8 @@ const sortingList: { id: number; name: string }[] = [
 ]
 
 const Sorting: React.FC = () => {
-    const {sortingTypeId, sortingDirection} = useSelector((state: RootState): FilterState => state.filter)
-    const dispatch = useDispatch()
+    const {sortingTypeId, sortingDirection} = useAppSelector((state): FilterState => state.filter)
+    const dispatch = useAppDispatch()
 
     const [show, setShowing] = React.useState(false)
 
@@ -47,7 +48,7 @@ const Sorting: React.FC = () => {
 
             const isOutside = sortRef.current && target && !sortRef.current.contains(target)
 
-            // 22.5.2 For .closest(), the target must be an Element (HTMLElement extends Element)
+            // 22.5.2 For .closest(), the target must be an Element (HTMLElement extends Element). (Optional channing operator ("?.") is checking if the left part from it exists and only then goes to the right part from it and execute a function ("closest()" in this example).)
             const isSortBtn = (target as HTMLElement)?.closest?.('.sort__btn')
 
             if (isOutside || isSortBtn) setShowing(false)

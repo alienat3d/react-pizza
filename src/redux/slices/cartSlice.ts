@@ -14,6 +14,8 @@ export interface Items {
     title: string
     price: number
     amount: number
+    dough: string
+    size: string
 }
 
 const initialState: CartState = {

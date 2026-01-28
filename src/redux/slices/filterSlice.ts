@@ -4,20 +4,20 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 // 1. Define the shape of your state
 export interface FilterState {
-    categoryName: string;
-    currentPage: number;
-    sortingDirection: 'asc' | 'desc';
-    sortingTypeId: number;
+    categoryName: string
+    currentPage: number
+    sortingDirection: 'asc' | 'desc'
+    sortingTypeId: number
 }
 
 // 2. Define the payload for setFilters (since it handles string conversion)
 // Incoming values from URLs are often strings, so we allow string | number here.
 interface FilterParams {
-    categoryName: string;
-    currentPage: string | number;
-    sortingTypeId: string | number;
-    sortingDirection: string;
-    searchValue: string;
+    categoryName: string
+    currentPage: string | number
+    sortingTypeId: string | number
+    sortingDirection: string
+    searchValue: string
 }
 
 // 3. Apply the interface to initialState
@@ -51,7 +51,7 @@ export const filterSlice = createSlice({
             state.currentPage = Number(action.payload.currentPage)
             state.sortingTypeId = Number(action.payload.sortingTypeId)
             // We assume the string is valid, or you could add validation here
-            state.sortingDirection = action.payload.sortingDirection as 'asc' | 'desc';
+            state.sortingDirection = action.payload.sortingDirection as 'asc' | 'desc'
         }
     },
 })

@@ -2,7 +2,7 @@ import pepperIcon from '/src/assets/img/pepper.svg'
 import leafIcon from '/src/assets/img/leaf.svg'
 
 import React from "react"
-import {Link} from "react-router";
+import {Link} from "react-router"
 // import PropTypes from 'prop-types'
 import {useDispatch, useSelector} from "react-redux"
 import {addItem, Items, selectCartItemById} from "../../redux/slices/cartSlice"
@@ -11,9 +11,9 @@ const doughTypeNames = ['традиционное', 'тонкое']
 const sizeValues = ['25', '30', '35']
 
 interface PizzaParams extends Items {
-    filling: string;
-    vegetarian: boolean;
-    spicy: number;
+    filling: string
+    vegetarian: boolean
+    spicy: number
 }
 
 const PizzaBlock = ({id, img, title, price, filling, vegetarian, spicy}: PizzaParams) => {

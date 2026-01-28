@@ -3,20 +3,20 @@ import axios from "axios"
 
 // Define the Pizza type
 export interface Pizza {
-    id: string;
-    img: string;
-    title: string;
-    price: number;
-    filling: string;
-    vegetarian: boolean;
-    spicy: number;
-    amount: number;
+    id: string
+    img: string
+    title: string
+    price: number
+    filling: string
+    vegetarian: boolean
+    spicy: number
+    amount: number
 }
 
 // Define the state type
 interface PizzasState {
-    status: 'loading' | 'success' | 'error';
-    items: Pizza[];
+    status: 'loading' | 'success' | 'error'
+    items: Pizza[]
 }
 
 // Define initial state with proper typing

@@ -184,7 +184,7 @@ const Home: React.FC = () => {
         isMounted.current = true
     }, [categoryName, sortingTypeId, sortingDirection, currentPage, navigate])
 
-    const pizzasArr = items.map(item => <PizzaBlock key={item.title} {...item} />)
+    const pizzasArr = items.map(item => <PizzaBlock key={item.title} dough={""} size={""}  {...item} />)
     const skeletonsArr = [...new Array(6)].map((_, idx) => <Skeleton key={idx}/>)
 
     return (

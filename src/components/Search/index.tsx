@@ -19,9 +19,9 @@ const Search: React.FC = () => {
         []
     );
 
-    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
-        updateSearchValue(event.target.value)
+    const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(evt.target.value);
+        updateSearchValue(evt.target.value)
     };
 
     // 22.10.1 А здесь перед вызовом "focus" добавим опциональный оператор "?", на случай, если "searchInputRef.current" не существует.

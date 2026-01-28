@@ -6,8 +6,8 @@ import ReactPaginate from 'react-paginate'
 
 // Define the props interface for Pagination
 interface PaginationProps {
-  totalPages: number;
-  onChangePage: (pageNumber: number) => void;
+  totalPages: number
+  onChangePage: (pageNumber: number) => void
 }
 
 // 10.11.3 Передадим onChangePage в пропсы Pagination, чтобы связать с родительским.
