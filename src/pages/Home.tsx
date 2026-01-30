@@ -65,7 +65,7 @@ const Home: React.FC = () => {
 
             dispatch(setFilters({
             categoryName: (params.categoryName as string),
-            currentPage: Number(params.page),
+            currentPage: Number(params.page) || 1,
             sortingTypeId: Number(params.sortingTypeId),
             sortingDirection: (params.sortingDirection as 'asc' | 'desc'),
             searchValue: (params.searchValue as string)
