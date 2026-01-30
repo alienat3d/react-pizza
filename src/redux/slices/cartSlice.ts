@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {RootState} from "../store"
 
 // 22.7.0 По примеру, как мы уже делали в [filterSlice.ts], напишем типизацию и для этого слайса. ↓
@@ -33,15 +33,18 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addItem(state, action) {
+        addItem(state, action: PayloadAction<Items | { id: string }>) {
             const findItem = state.items.find(obj => obj.id === action.payload.id)
 
-            findItem ? findItem.amount++ : state.items.push(action.payload)
+            // Type guard: only push if it's a complete Items object
+            if ('img' in action.payload) {
+                findItem ? findItem.amount++ : state.items.push(action.payload)
+            }
 
             state.totalItems++
             state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
         },
-        removeItem(state, action) {
+        removeItem(state, action: PayloadAction<string>) {
             const findItem = state.items.find(obj => obj.id === action.payload)
 
             // 22.7.1 Здесь необходимо проверять найден ли вообще findItem для следующих условий. ↓
@@ -58,7 +61,7 @@ export const cartSlice = createSlice({
             if (state.totalItems > 0) state.totalItems--
             state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
         },
-        removeItems(state, action) {
+        removeItems(state, action: PayloadAction<string>) {
             const findItem = state.items.find(obj => obj.id === action.payload)
             // 12.10.2 То же самое и здесь, нужна проверка, что findItem существует.
             if (findItem) state.totalItems = state.totalItems - findItem.amount
