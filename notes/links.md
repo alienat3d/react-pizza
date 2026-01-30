@@ -25,8 +25,8 @@ https://reactrouter.com/
 [#20: Что такое TypeScript и зачем он нужен?](https://www.youtube.com/watch?v=9MUudEhpj2A)<br/>
 [#21: Используем TypeScript + ReactJS (практика)](https://www.youtube.com/watch?v=9rA2bXWDLjw)<br/>
 [#22: Типизируем пропсы (props) и хук useRef (TypeScript)](https://www.youtube.com/watch?v=7QdQc-KwWKE)<br/>
-[#23: ]()<br/>
-[#24: ]()<br/>
+[#23: Типизация onClick, onChange и Event (TypeScript)](https://www.youtube.com/watch?v=WbrxEPgS83c)<br/>
+[#24: TypeScript + Redux Toolkit](https://www.youtube.com/watch?v=cFkSoZVzngo)<br/>
 [#25: ]()<br/>
 [#26: ]()<br/>
 [#27: ]()<br/>
