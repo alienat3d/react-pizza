@@ -4,7 +4,8 @@ import leafIcon from '/src/assets/img/leaf.svg'
 import React from "react"
 import {Link} from "react-router"
 // import PropTypes from 'prop-types'
-import {useDispatch, useSelector} from "react-redux"
+// import {useDispatch, useSelector} from "react-redux"
+import {useAppDispatch, useAppSelector} from '../../redux/hooks'
 import {addItem, Items, selectCartItemById} from "../../redux/slices/cartSlice"
 
 const doughTypeNames = ['традиционное', 'тонкое']
@@ -20,10 +21,10 @@ const PizzaBlock = ({id, img, title, price, filling, vegetarian, spicy}: PizzaPa
     // 16.6.1 Добавим стейт "amount" из Redux. Для этого нам нужно искать эту пиццу по id.
     // const itemInCart = useSelector(state => state.cart.items.find(obj => obj.id === id))
     // 18.2.1 Заменим теперь на нашу функцию-селектор из Редакса:
-    const itemInCart = useSelector(selectCartItemById(id))
+    const itemInCart = useAppSelector(selectCartItemById(id))
     // 16.6.2 Дальше мы будем искать в этом объекте свойство "amount", а если не найдём, то присваивать 0. ↓
     const addedItemsCount = itemInCart ? itemInCart.amount : 0
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     // Здесь хранятся названия видов теста
 
@@ -32,9 +33,11 @@ const PizzaBlock = ({id, img, title, price, filling, vegetarian, spicy}: PizzaPa
     // const [pizzaCount, setPizzaCount] = useState(0)
 
     // Для того чтобы можно было выбрать определённый тип теста или размер нам нужны ещё два состояния
-    const [pizzaDoughType, setDoughType] = React.useState(1)
+    const [pizzaDoughType, setDoughType] = React.useState(0)
 
     const [pizzaSize, setSize] = React.useState(1)
+
+    const [pizzaPrice, setPrice] = React.useState(0)
 
     // const addPizzaCount = () => setPizzaCount(pizzaCount + 1)
     // 16.3.0 Здесь мы будем при добавлении генерить объект с описанием добавленной пиццы перед отправкой её в хранилище Redux. ↓
@@ -42,11 +45,19 @@ const PizzaBlock = ({id, img, title, price, filling, vegetarian, spicy}: PizzaPa
     // (Go to [cartSlice.ts])
     const onClickAddItem = () => {
         const item = {
-            id, amount: 1, img, title, price, dough: doughTypeNames[pizzaDoughType], size: sizeValues[pizzaSize]
+            id, amount: 1, img, title, price: pizzaPrice, dough: doughTypeNames[pizzaDoughType], size: sizeValues[pizzaSize]
         }
         // setPizzaCount(pizzaCount + 1)
         dispatch(addItem(item))
     }
+
+    React.useEffect(() => {
+        let calculatedPrice = price
+        if (pizzaSize === 1) calculatedPrice = Math.round(price * 1.4)
+        if (pizzaSize === 2) calculatedPrice = Math.round(price * 1.6)
+
+        setPrice(calculatedPrice)
+    }, [pizzaSize])
 
     return (
         <div className="pizza-block">
@@ -95,7 +106,7 @@ const PizzaBlock = ({id, img, title, price, filling, vegetarian, spicy}: PizzaPa
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от {price} ₽</div>
+                <div className="pizza-block__price">{pizzaPrice} ₽</div>
                 {/* 16.3.1 */}
                 <button onClick={onClickAddItem} className="button button--outline button--add">
                     <svg
