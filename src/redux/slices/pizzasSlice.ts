@@ -13,15 +13,25 @@ export interface Pizza {
     amount: number
 }
 
+// 24.1.0 Здесь, вместо указания названий статусов через строчные значения мы можем вынести их в enum. По сути это такой объект в TypeScript, который позволяет нам в дальнейшем указывать значения только в одном месте, а не повторять их повсюду. (Работает примерно как переменные, хранящие данные или функции, которые мы используем.)
+enum Status {
+    LOADING = 'loading',
+    SUCCESS = 'success',
+    ERROR = 'error',
+}
+
+// 24.1.3 В типе соответственно мы тоже меняем значения union types на название enum.
 // Define the state type
 interface PizzasState {
-    status: 'loading' | 'success' | 'error'
+    // status: 'loading' | 'success' | 'error'
+    status: Status
     items: Pizza[]
 }
 
+// 24.1.1 Теперь мы можем указывать везде уже свойство объекта-enum вместо самих значений. И когда нам нужно будет что-то поменять, например "loading" на "Идёт загрузка...", то мы меняем только 1 раз значение внутри enum, а не бегаем и ищем их по всему проекту.
 // Define initial state with proper typing
 const initialState: PizzasState = {
-    status: 'loading',
+    status: Status.LOADING,
     items: []
 }
 
@@ -38,8 +48,8 @@ const initialState: PizzasState = {
 export const fetchPizzas = createAsyncThunk<Pizza[], string>(
     'pizzas/fetchPizzasStatus',
     // async (link, thunkAPI) => {
-    async (link: string) => {
-        const {data} = await axios.get<Pizza[]>(link)
+    async (link) => {
+        const {data} = await axios.get(link)
 
         // 18.0.1 Пример использования «rejectWithValue»
         /*if (data.length) {
@@ -55,28 +65,32 @@ export const pizzasSlice = createSlice({
     name: 'pizzas',
     initialState,
     reducers: {
-        setItems(state, action: PayloadAction<Pizza[]>) {
+        /*setItems(state, action: PayloadAction<Pizza[]>) {
             state.items = action.payload
-        },
+        },*/
     },
     // 17.1.3 Здесь мы можем ка-то реагировать, в зависимости от того в каком статусе находится запрос на сервер.
+    // 24.1.2 Также и здесь указываем свойства из enum.
     extraReducers: (builder) => {
         builder
             .addCase(fetchPizzas.pending, state => {
-                state.status = "loading"
+                // state.status = "loading"
+                state.status = Status.LOADING
                 state.items = []
             })
             .addCase(fetchPizzas.fulfilled, (state, action: PayloadAction<Pizza[]>) => {
-                state.status = "success"
+                // state.status = "success"
+                state.status = Status.SUCCESS
                 state.items = action.payload
             })
             .addCase(fetchPizzas.rejected, state => {
-                state.status = "error"
+                // state.status = "error"
+                state.status = Status.ERROR
                 state.items = []
             })
     }
 })
 
-export const {setItems} = pizzasSlice.actions
+// export const {setItems} = pizzasSlice.actions
 
 export default pizzasSlice.reducer
