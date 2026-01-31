@@ -1,5 +1,7 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {RootState} from "../store"
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {getCartFromLS} from "../../utils/getCartFromLS"
+import {calcTotalPrice} from "../../utils/calcTotalPrice"
 
 // 22.7.0 По примеру, как мы уже делали в [filterSlice.ts], напишем типизацию и для этого слайса. ↓
 export interface CartState {
@@ -18,10 +20,16 @@ export interface Items {
     size: string
 }
 
+// 26.2 Нам также нужно проверять localStorage и при наличии содержимого загружать его в items слайса корзины.
+// 26.3 Однако мы столкнулись с проблемой типизации Typescript, чтобы её исправить создадим функцию-утилиту в папке "utils", которую потом можно будет переиспользовать.
+// 26.4 Нам пришлось произвести ряд изменений, чтобы убрать TS ошибку со стейта "items", после получения его значения через нашу функцию-утилиту.
+// Define the shape of your LS return if you want extra safety, or just rely on the Slice
+const {items, totalPrice, totalItems} = getCartFromLS();
+
 const initialState: CartState = {
-    totalItems: 0,
-    totalPrice: 0,
-    items: [],
+    items,
+    totalPrice,
+    totalItems,
 }
 
 // 16.1 Теперь поработаем с корзиной товаров, создадим отдельный слайс, куда будем сохранять её содержимое. Внутри будет массив для добавленных в корзину пицц, а также общая цена. Добавим экшены для добавления новых артиклей, удаления их, а также очистки массива с ними.
@@ -42,7 +50,8 @@ export const cartSlice = createSlice({
             }
 
             state.totalItems++
-            state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
+            // state.totalPrice = state.items.reduce((total, obj) => total + (obj.price * obj.amount), 0)
+            state.totalPrice = calcTotalPrice(state.items)
         },
         removeItem(state, action: PayloadAction<string>) {
             const findItem = state.items.find(obj => obj.id === action.payload)
