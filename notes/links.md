@@ -27,7 +27,6 @@ https://reactrouter.com/
 [#22: Типизируем пропсы (props) и хук useRef (TypeScript)](https://www.youtube.com/watch?v=7QdQc-KwWKE)<br/>
 [#23: Типизация onClick, onChange и Event (TypeScript)](https://www.youtube.com/watch?v=WbrxEPgS83c)<br/>
 [#24: TypeScript + Redux Toolkit](https://www.youtube.com/watch?v=cFkSoZVzngo)<br/>
-[#25: ]()<br/>
-[#26: ]()<br/>
-[#27: ]()<br/>
-[#28: ]()
+[#25: Оптимизируем перерисовку компонентов с помощью useCallback и React.memo](https://www.youtube.com/watch?v=KvoWbHHBv88)<br/>
+[#26: Сохраняем пиццы в LocalStorage, грамотно структурируем папки проекта](https://www.youtube.com/watch?v=hWvNWhA5J0M)<br/>
+[#27: Оптимизируем сборку JS-файла. Code Splitting, Tree Shaking, Reexport](https://www.youtube.com/watch?v=uEcss7s6vBc)
