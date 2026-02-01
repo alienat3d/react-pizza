@@ -9,7 +9,7 @@ import {clearList} from "../redux/slices/cartSlice"
 import EmptyCart from "./EmptyCart"
 import CartItem from "../components/CartItem"
 
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
 // 16.7.0 Здесь мы будем заполнять вёрстку динамически из данных о добавленных пиццах в Redux хранилище. Поэтому, сперва мы извлечём те данные, которые нам понадобятся с помощью хука "useSelector" и будем их вставлять, а также необходимые экшены с помощью "dispatch".
     const {totalItems, totalPrice} = useAppSelector(state => state.cart)
     // 16.7.1 А ещё нам потребуется массив со всеми добавленными пиццами, чтобы отрендерить их на странице корзины.
@@ -68,3 +68,5 @@ export const Cart: React.FC = () => {
         </div>
     )
 }
+
+export default Cart
